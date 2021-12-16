@@ -34,12 +34,11 @@
     cursor: pointer;
 }
 
-
 .contador__comprar,
 .contador__boton,
 .contador__cantidad {
     font-size: 1.6rem;
-    color: #fff;
+    color: #000;
     height: 30px;
     margin-inline: .5rem;
     border: none;
@@ -48,6 +47,13 @@
     background: var(--text-color);
 }
 
+.contador__boton,
+.contador__cantidad{
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 30px;
+}
 
 .contador__comprar {
     box-sizing: content-box;
