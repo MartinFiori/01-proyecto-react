@@ -1,0 +1,70 @@
+.contador__container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.contador {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-block: 1rem;
+}
+
+.contador__boton {
+    width: 33.3%;
+}
+
+.contador__cantidad {
+    width: 33.3%;
+    text-align: center;
+    background: rgb(170, 170, 170);
+    line-height: 30px;
+}
+
+
+.contador__comprar {
+    width: 140px;
+    margin-block: 1rem;
+}
+
+
+.contador__boton,
+.contador__comprar {
+    cursor: pointer;
+}
+
+
+.contador__comprar,
+.contador__boton,
+.contador__cantidad {
+    font-size: 1.6rem;
+    color: #fff;
+    height: 30px;
+    margin-inline: .5rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: var(--text-color);
+}
+
+
+.contador__comprar {
+    box-sizing: content-box;
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 3px solid var(--primary-color);
+    padding: .1em;
+    background: transparent;
+    align-self: flex-end;
+    transition: color 250ms ease-in, background 250ms ease-in;
+}
+
+.contador__comprar:hover{
+    color: var(--white);
+    background: var(--primary-color);
+}
+
+.contador__stock {
+    font-size: 1.8rem;
+}

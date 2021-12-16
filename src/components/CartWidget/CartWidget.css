@@ -1,0 +1,8 @@
+.cart{
+    font-size: 40px;
+    height: 100%;
+    color: var(--text-color);
+    transform: scaleX(-1);
+    cursor: pointer;
+}
+
