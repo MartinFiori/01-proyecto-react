@@ -17,6 +17,7 @@ const ItemDetailContainer = () => {
         }, 2000);
     })
 
+
     useEffect(() => {
         getItem.then(resultProducts=>{
             resultProducts.filter((resultProduct)=>{

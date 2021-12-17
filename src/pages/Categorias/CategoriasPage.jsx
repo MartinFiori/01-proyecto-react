@@ -6,10 +6,12 @@ import Pacman from '../../components/Pacman/Pacman';
 import { Link } from 'react-router-dom'
 
 
-const CategoriasPage = ({data}) => {
-    const { id } = useParams();
+const CategoriasPage = () => {
+    const { idCategory } = useParams();
     const [loading, setLoading] = useState(true);
     const [category, setCategory] = useState([]);
+
+
 
     const getCategory = new Promise ((resolve)=>{
         setTimeout(() => {
@@ -20,7 +22,7 @@ const CategoriasPage = ({data}) => {
     useEffect(() => {
         getCategory.then((resultCategories)=>{
             resultCategories.filter((resultCategory)=>{
-                if (resultCategory.category === parseInt(id)) {
+                if (resultCategory.category === idCategory) {
                     setCategory(resultCategory)
                 }
             })
@@ -35,23 +37,23 @@ const CategoriasPage = ({data}) => {
         <Pacman/>
         :
         <div className='CategoriasPage'>
-            <Link to={`/category/figuras`}>
-            <button className='category'>Figuras</button>
+            <Link to={`/category/figuras`} className='category'>
+                Figuras
             </Link>
-            <Link to={`/category/llaveros`}>
-            <button className='category'>Llaveros</button>
+            <Link to={`/category/llaveros`} className='category'>
+                Llaveros
             </Link>
-            <Link to={`/category/organizadores`}>
-            <button className='category'>Organizadores</button>
+            <Link to={`/category/organizadores`} className='category'>
+                Organizadores
             </Link>
-            <Link to={`/category/jardineria`}>
-            <button className='category'>Jardinería</button>
+            <Link to={`/category/jardineria`} className='category' >
+                Jardinería
             </Link>
-            <Link to={`/category/aritos`}>
-            <button className='category'>Aritos</button>
+            <Link to={`/category/aritos`} className='category'>
+                Aritos
             </Link>
-            <Link to={`/category/articulados`}>
-            <button className='category'>Articulados</button>
+            <Link to={`/category/articulados`} className='category'>
+                Articulados
             </Link>
         </div>
         }

@@ -1,6 +1,7 @@
 import React from 'react';
+import './CategoriaList.css'
 
-const CategoriasPageFunca = () => {
+const CategoriaList = () => {
     return(
         <div>
             
@@ -8,4 +9,4 @@ const CategoriasPageFunca = () => {
     )
 }
 
-export default CategoriasPageFunca 
+export default CategoriaList 
