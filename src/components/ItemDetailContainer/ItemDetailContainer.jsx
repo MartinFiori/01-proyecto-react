@@ -1,34 +1,30 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail.jsx'
+import { localAPI } from '../config.js';
 import Pacman from '../Pacman/Pacman.jsx'
-import Img1 from '../../assets/cards/kurama.jpg'
 
 const ItemDetailContainer = () => {
-    const [loading, setLoading] = useState(true)
-    const [item, setItem] = useState([])
-    const dataProduct =
-        {
-            id:1,
-            name: "Kurama",
-            price: 1919,
-            description: "Un pato que se adapta a vos",
-            stock: 30,
-            img: Img1
-        }
-    
+    console.log('parametros por ruta', useParams());
+    const [loading, setLoading] = useState(true);
+    const [item, setItem] = useState([]);
+    const { id } = useParams();
 
 
     const getItem = new Promise((resolve,reject)=>{
         setTimeout(() => {
-            resolve(dataProduct)
-            setLoading(false)
+            resolve(localAPI)
         }, 2000);
     })
 
     useEffect(() => {
-        getItem.then((data)=>{
-            console.log("la promesa es:", data);
-            setItem(data)
+        getItem.then(resultProducts=>{
+            resultProducts.filter((resultProduct)=>{
+                if (resultProduct.id === parseInt(id)) {
+                    setItem(resultProduct)
+                    setLoading(false)
+                }
+            })
         })
     }, [])
     

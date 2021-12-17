@@ -34,7 +34,9 @@ const NavBar = () => {
                         <Link to='/products'>
                             <li onClick={displayMenu} className="nav__list--item">Productos</li>
                         </Link>
-                        <li onClick={displayMenu} className="nav__list--item">Favoritos</li>
+                        <Link to='/category'>
+                            <li onClick={displayMenu} className="nav__list--item">Categorias</li>
+                        </Link>
                         <li onClick={displayMenu} className="nav__list--item">Contacto</li>
                     </ul>
                 </div>
