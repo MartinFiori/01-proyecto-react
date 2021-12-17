@@ -3,7 +3,7 @@ export const localAPI = [
         id: 1,
         name: "Llavero Gatito",
         price: 250,
-        category: "llavero",
+        category: "llaveros",
         img: "gatitos.jpg",
         description: "Un Llavero Gatito que se adapta a vos",
     },

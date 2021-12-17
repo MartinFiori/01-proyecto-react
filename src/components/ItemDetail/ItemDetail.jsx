@@ -6,7 +6,7 @@ import ItemCount from '../ItemCount/ItemCount.jsx'
 const ItemDetail = ({item}) => {
     return(
         <div className="detailContainer">
-            <img src={`../../assets/cards/${item.img}`} className="detailContainer__img" alt={item.name}/>
+            <img src={require(`../../assets/cards/${item.img}`)} className="detailContainer__img" alt={item.name}/>
             <section className="detail">
                 <div className="detail__header">
                     <h2 className="detail__header--title">{item.name}</h2>

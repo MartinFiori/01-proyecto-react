@@ -11,7 +11,7 @@ const Item =({data})=>{
                 <h3 className="card__header--title">{data.name}</h3>
                 <p className="card__header--price">$ {data.price}</p>
             </section>
-            <img className="card__img" src={`./assets/cards/${data.img}`} alt={data.name} />
+            <img className="card__img" src={require(`../../assets/cards/${data.img}`)} alt={data.name} />
             <p className="card__description">
                 {data.description}
                 <i className="fas fa-info-circle description--circle"></i>

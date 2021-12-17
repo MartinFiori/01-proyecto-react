@@ -1,28 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './CategoriasPage.css'
-import Pacman from '../../components/Pacman/Pacman';
 import { Link } from 'react-router-dom'
 
 
 const CategoriasPage = () => {
-    const [loading, setLoading] = useState(true);
-
-
-
-useEffect(() => {
-    setTimeout(() => {
-        setLoading(false)
-    }, 2000);
-}, []);
-
-
-
     return(
         <>
-{        
-        loading ?
-        <Pacman/>
-        :
         <div className='CategoriasPage'>
             <Link to={`/category/figuras`} className='category'>
                 Figuras
@@ -43,7 +26,6 @@ useEffect(() => {
                 Articulados
             </Link>
         </div>
-        }
     </>
     )
 }

@@ -3,30 +3,26 @@ import { useParams } from 'react-router-dom';
 import { localAPI } from '../config';
 import Pacman from '../Pacman/Pacman.jsx'
 import Item from '../Item/Item.jsx'
-import './CategoriaList.css'
+import '../ItemListContainer/ItemListContainer.css'
 
 const CategoriaList = () => {
     const [ loading, setloading ] = useState(true);
     const [ category, setCategory ] = useState([]);
     const { idCategory } = useParams();
-    const productoFiltrado = []
 
-    const requesCategory = new Promise((resolve)=>{
+    const requestCategory = new Promise((resolve)=>{
         resolve( localAPI );
     });
 
     useEffect(() => {
-        requesCategory.then((resultCategories)=>{
-            resultCategories.filter(resultCategory=>{
-                if (resultCategory.category === idCategory) {
-                    console.log(resultCategory)
-                    setCategory(resultCategory)
-                }
-                setTimeout(() => {
-                    setloading(false)
-                }, 2000);
-
-            })
+        requestCategory.then((resultCategories)=>{
+            setTimeout(() => {
+                setloading(false)
+            }, 2000);
+            const filteredCategory = resultCategories.filter(resultCategory=>{
+                return(resultCategory.category === idCategory)
+            });
+            setCategory(filteredCategory)
         });
     }, []);
 
@@ -36,7 +32,7 @@ const CategoriaList = () => {
                 loading ?
                 <Pacman/>
                 :
-                <div>
+                <div className="cards__container">
                 {
                 category.map((prod, index)=>{
                     return(
@@ -50,4 +46,4 @@ const CategoriaList = () => {
     )
 }
 
-export default CategoriaList 
+export default React.memo(CategoriaList)
