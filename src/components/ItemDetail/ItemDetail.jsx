@@ -1,9 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount.jsx'
 
 
 const ItemDetail = ({item}) => {
+    const [itemCart, setItemCart] = useState(
+        {
+            id: item.id,
+            name: item.name,
+            quantity: 0
+        }
+    );
+    
+    const onAdd = (value) =>{
+        console.log("items agregados", value);
+        itemCart.quantity = value
+    }
+
+    const addToCart = ()=>{
+        console.log("itemCart: ", itemCart);
+    };
     return(
         <div className="detailContainer">
             <img src={require(`../../assets/cards/${item.img}`)} className="detailContainer__img" alt={item.name}/>
@@ -23,7 +39,7 @@ const ItemDetail = ({item}) => {
                         </select>
                     </div>
                 </form>
-                <ItemCount/>
+                <ItemCount stock={item.stock} onAdd={onAdd} addToCart={addToCart}/>
 
             </section>
         </div>

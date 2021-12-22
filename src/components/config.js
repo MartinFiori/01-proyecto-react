@@ -6,6 +6,7 @@ export const localAPI = [
         category: "llaveros",
         img: "gatitos.jpg",
         description: "Un Llavero Gatito que se adapta a vos",
+        stock: 6,
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ export const localAPI = [
         category: "figuras",
         img:"neko.jpg",
         description: "Un gato que se adapta a vos",
+        stock: 6,
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const localAPI = [
         category: "organizadores",
         img:"auris.jpg",
         description: "Un soporte de auricular que se adapta a vos",
+        stock: 6,
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ export const localAPI = [
         category: "organizadores",
         img:"celu.jpg",
         description: "Un soporte de celular que se adapta a vos",
+        stock: 6,
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ export const localAPI = [
         category: "organizadores",
         img:"compu.jpg",
         description: "Un soporte de laptop que se adapta a vos",
+        stock: 6,
     },
     {
         id: 6,
@@ -46,6 +51,7 @@ export const localAPI = [
         category: "figuras",
         img:"kurama.jpg",
         description: "Un kurama que se adapta a vos",
+        stock: 6,
     },
     {
         id: 7,
@@ -54,6 +60,7 @@ export const localAPI = [
         category: "articulados",
         img:"raptor.jpg",
         description: "Un Raptor que se adapta a vos",
+        stock: 6,
     },
     {
         id: 8,
@@ -62,6 +69,7 @@ export const localAPI = [
         category: "articulados",
         img:"mariposa.jpg",
         description: "Una Mariposa que se adapta a vos",
+        stock: 6,
     },
     {
         id: 9,
@@ -70,6 +78,7 @@ export const localAPI = [
         category: "articulados",
         img:"pardo.jpg",
         description: "Un Pardo que se adapta a vos",
+        stock: 6,
     },
     {
         id: 10,
@@ -78,6 +87,7 @@ export const localAPI = [
         category: "articulados",
         img:"pterodactilo.jpg",
         description: "Un Pterodactilo que se adapta a vos",
+        stock: 6,
     },
     {
         id: 11,
@@ -86,6 +96,7 @@ export const localAPI = [
         category: "articulados",
         img:"tricerapto.jpg",
         description: "Un Triceraptop que se adapta a vos",
+        stock: 6,
     },
     {
         id: 12,
@@ -94,6 +105,7 @@ export const localAPI = [
         category: "articulados",
         img:"pejelagarto.jpg",
         description: "Una Lagartija que se adapta a vos",
+        stock: 6,
     },
     {
         id: 13,
@@ -102,6 +114,7 @@ export const localAPI = [
         category: "jardineria",
         img:"macetatorre.jpg",
         description: "Unas Maceta Torre que se adapta a vos",
+        stock: 6,
     },
     {
         id: 14,
@@ -110,6 +123,7 @@ export const localAPI = [
         category: "figuras",
         img:"noface.jpg",
         description: "Un No Face que se adapta a vos",
+        stock: 6,
     },
     {
         id: 15,
@@ -118,6 +132,7 @@ export const localAPI = [
         category: "figuras",
         img:"kirara.jpg",
         description: "Una Kirara que se adapta a vos",
+        stock: 6,
     },
     {
         id: 16,
@@ -126,6 +141,7 @@ export const localAPI = [
         category: "jardineria",
         img:"macetagroot.jpg",
         description: "Una Maceta Baby Groot que se adapta a vos",
+        stock: 6,
     },
     {
         id: 17,
@@ -134,6 +150,7 @@ export const localAPI = [
         category: "figuras",
         img:"babyyoda.jpg",
         description: "Un Baby Yoda que se adapta a vos",
+        stock: 6,
     },
     {
         id: 18,
@@ -142,6 +159,7 @@ export const localAPI = [
         category: "jardineria",
         img:"macetaportal.jpg",
         description: "Una Maceta Portal que se adapta a vos",
+        stock: 6,
     },
     {
         id: 19,
@@ -150,6 +168,7 @@ export const localAPI = [
         category: "organizadores",
         img:"pokebola.jpg",
         description: "Una Pokebola Porta Cartuchos Switch que se adapta a vos",
+        stock: 6,
     },
     {
         id: 20,
@@ -158,6 +177,7 @@ export const localAPI = [
         category: "llavero",
         img:"llaveroharry.jpg",
         description: "Un Llavero Harry Styles que se adapta a vos",
+        stock: 6,
     },
     {
         id: 21,
@@ -166,6 +186,7 @@ export const localAPI = [
         category: "aritos",
         img:"calabazas.jpg",
         description: "Unas Calabazas que se adapta a vos",
+        stock: 6,
     },
     {
         id: 22,
@@ -174,5 +195,6 @@ export const localAPI = [
         category: "figuras",
         img:"picador.jpg",
         description: "Un Picador Estrella de la Muerte que se adapta a vos",
+        stock: 6,
     }
 ]

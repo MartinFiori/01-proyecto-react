@@ -3,8 +3,10 @@ import './Item.css'
 import { Link } from 'react-router-dom'
 
 const Item =({data})=>{
-
-    
+    const toggleFavorite = (e)=>{
+        e.target.classList.toggle('fas');
+        e.target.classList.toggle('card__buttons--heart');
+    }
     return(
         <div className="card">
             <section className="card__header">
@@ -14,14 +16,13 @@ const Item =({data})=>{
             <img className="card__img" src={require(`../../assets/cards/${data.img}`)} alt={data.name} />
             <p className="card__description">
                 {data.description}
-                <i className="fas fa-info-circle description--circle"></i>
             </p>
             <section className="card__buttons">
                 <Link to={`/detail/${data.id}`}>
-                    <button id={data.id} className="card__buttons--buy">Comprar</button>
+                    <button className="card__buttons--buy">Ver Producto</button>
                 </Link>
                 <div className="card__buttons--container">
-                    <i className="far fa-heart card__buttons--icon"></i>
+                    <i className="far fa-heart card__buttons--icon" onClick={toggleFavorite}></i>
                     <i className="fas fa-share-alt card__buttons--icon"></i>
                 </div>
             </section>

@@ -7,17 +7,16 @@ import ItemListContainer from '../../components/ItemListContainer/ItemListContai
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.jsx'
 import Home from '../../pages/Home/Home.jsx'
 import Error404 from '../../pages/Error404/Error404.jsx'
-import CategoriasPage from '../../pages/Categorias/CategoriasPage.jsx'
-import CategoriaList from '../CategoriaList/CategoriaList.jsx'
+import Cart from '../../pages/Cart/Cart';
 
 const AppRouter = () => {
     return(
         <BrowserRouter>
             <NavBar/>
                 <Routes>
-                    <Route path='/category/:idCategory' element ={<CategoriaList/>}/>
+                    <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
                     <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
-                    <Route path='/category' element ={<CategoriasPage/>}/>
+                    <Route path='/cart' element ={<Cart/>}/>
                     <Route path='/products' element ={<ItemListContainer/>}/>
                     <Route path='/' element ={<Home/>}/>
                     <Route path='*' element ={<Error404/>}/>

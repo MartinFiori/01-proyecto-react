@@ -1,13 +1,18 @@
 import './ItemCount.css'
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
-const ItemCount = ({stock})=>{
+const ItemCount = ({stock, onAdd, addToCart})=>{
     const [count, setCount]= useState(0)
     let [totalStock, setTotalStock]= useState(stock)
 
     const handleSumar = ()=>{
-        count < totalStock && setCount( count + 1 )  
+        if (count < totalStock) {
+            setCount( count + 1 )
+            onAdd(count + 1)
+        }
+        
     }
 
     const handleRestar = ()=>{
@@ -22,6 +27,7 @@ const ItemCount = ({stock})=>{
             setTotalStock(
                 totalStock-count
             )
+            addToCart()
     }
 
     return(
@@ -38,9 +44,18 @@ const ItemCount = ({stock})=>{
                 &#43;
                 </button>
             </div>
-            <button className="contador__comprar" onClick={handleComprar}>
-                Añadir al carrito
-            </button>
+            <div className='containerCompra'>
+                <Link to="/products">
+                    <button className="contador__comprar" onClick={handleComprar}>
+                        Añadir al carrito y seguir comprando
+                    </button>
+                </Link>
+                <Link to="/cart">
+                    <button className='contador__seguirComprando'>
+                        Finalizar Compra
+                    </button>
+                </Link>
+            </div>
         </div>
     )
 }

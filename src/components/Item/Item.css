@@ -57,12 +57,7 @@
     position: relative;
 }
 
-.description--circle{
-    position: absolute;
-    right: 15px;
-    top: -30px;
-    cursor: pointer;
-}
+
 
 .card__buttons {
     display: flex;
@@ -72,15 +67,14 @@
 }
 
 
-.card__buttons--icon,
-.description--circle {
+.card__buttons--icon{
     color: #7c7c7c;
     font-size: 2rem;
     transition: color 150ms ease-out;
 }
 
 .card__buttons--icon:hover{
-    color: #c8c8c8;
+    opacity: .8;
     transform: scale(1.03);
 }
 
@@ -100,4 +94,22 @@
 .card__buttons button {
     margin-inline: 1rem;
     cursor: pointer;
+}
+
+.card__buttons--heart{
+    color:#f00;
+    animation-name: favorite;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+}
+
+.card__buttons--heart:hover{
+    color:#f00;
+    opacity: .5;
+}
+
+@keyframes favorite{
+    0%{}
+    50%{transform: scale(1.3);}
+    100%{transform: scale(1);}
 }

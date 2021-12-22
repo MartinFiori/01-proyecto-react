@@ -19,9 +19,10 @@
     margin: 15px;
     padding: 15px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+}
+
+.detail > *{
+    margin-bottom: 25px;
 }
 
 .detail__header--title{

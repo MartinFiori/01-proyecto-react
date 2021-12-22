@@ -5,7 +5,6 @@ import Logo from '../../assets/icon/brillando.png';
 import CartWidget from '../CartWidget/CartWidget.jsx'
 import { Link } from 'react-router-dom'
 
-
 const NavBar = () => {
     const displayMenu = ()=>{
         document.getElementById('nav').classList.toggle("displayMenu")
@@ -17,12 +16,10 @@ const NavBar = () => {
             <div onClick={displayMenu} className="menu-btn">
                 <div className="menu-btn__burger"></div>
             </div>
-            <div className="header__icons">
-                <CartWidget/>
-                <Link to='/products'>
-                    <img src={Logo}  alt="logo Brillandocon" className="header__img"/>
-                </Link>
-            </div>
+            <Link to='/products'>
+                <img src={Logo}  alt="logo Brillandocon" className="header__img"/>
+            </Link>
+            <CartWidget/>
         </header>
             <nav className="nav" id="nav">
                 <div className="navOverlay"></div>
