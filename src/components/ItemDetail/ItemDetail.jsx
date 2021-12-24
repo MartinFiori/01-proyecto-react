@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, { useState, useContext} from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount.jsx'
+import { CartContext } from '../../context/CartContext/CartContext';
 
 
 const ItemDetail = ({item}) => {
+    const { addProducts, carrito} = useContext(CartContext)
     const [itemCart, setItemCart] = useState(
         {
             id: item.id,
+            img: item.img,
+            price: item.price,
             name: item.name,
             quantity: 0
         }
@@ -19,6 +23,7 @@ const ItemDetail = ({item}) => {
 
     const addToCart = ()=>{
         console.log("itemCart: ", itemCart);
+        addProducts(itemCart)
     };
     return(
         <div className="detailContainer">

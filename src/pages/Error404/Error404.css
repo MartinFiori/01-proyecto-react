@@ -1,11 +1,17 @@
-.errorContainer__title{
+
+.errorContainer__links--category{
     font-size: 2rem;
-    text-align: center;
+    color: var(--primary-color);
+    margin-inline: 1.5rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    outline: 3px solid var(--primary-color);
+    border-radius: 15px;
+    transition: box-shadow 150ms ease-in;
+    font-weight: bold;
 }
 
-.errorContainer__img{
-    display: block;
-    margin: 5rem auto;
-    width: 450px;
-    height: auto;
+.errorContainer__links--category:hover{
+    box-shadow: 0 0 10px 10px rgba(161, 55, 100, .3) ;
+    color: rgb(161, 55, 100);
 }

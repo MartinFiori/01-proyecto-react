@@ -1,44 +1,64 @@
 // Imports
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
 import Logo from '../../assets/icon/brillando.png';
 import CartWidget from '../CartWidget/CartWidget.jsx'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
     const displayMenu = ()=>{
-        document.getElementById('nav').classList.toggle("displayMenu")
-        document.querySelector('.menu-btn').classList.toggle('open')
+        setMenuIsOpen(!menuIsOpen)
     }
+
+    const closeMenu = ()=>{
+        setMenuIsOpen(false)
+        console.log("el booleano del menu es: ", menuIsOpen)
+    }
+
     return(
         <>
         <header className="header">
-            <div onClick={displayMenu} className="menu-btn">
+            <div onClick={displayMenu} className={`menu-btn ${menuIsOpen ? "open" : ""}`}>
                 <div className="menu-btn__burger"></div>
             </div>
-            <Link to='/products'>
+            <Link to='/'>
                 <img src={Logo}  alt="logo Brillandocon" className="header__img"/>
             </Link>
-            <CartWidget/>
+            <CartWidget onClick={closeMenu} displayMenu={displayMenu} menuIsOpen={menuIsOpen}/>
         </header>
-            <nav className="nav" id="nav">
-                <div className="navOverlay"></div>
-                <div className="nav__list--container">
-                    <ul className="nav__list">
-                        <Link to="/">
-                            <li onClick={displayMenu} className="nav__list--item">Inicio</li>
-                        </Link>
-                        <Link to='/products'>
-                            <li onClick={displayMenu} className="nav__list--item">Productos</li>
-                        </Link>
-                        <Link to='/category'>
-                            <li onClick={displayMenu} className="nav__list--item">Categorias</li>
-                        </Link>
-                        <li onClick={displayMenu} className="nav__list--item">Contacto</li>
-                    </ul>
-                </div>
-            </nav>
+        {/* ========== Inicio Nav Desplegable ========== */}
+        <nav className={`nav ${menuIsOpen ? "displayMenu" : ""}`} id="nav">
+            <div className="navOverlay"></div>
+            <div className="nav__list--container">
+                <ul className="nav__list">
+                    <Link to="/">
+                        <li onClick={displayMenu} className="nav__list--item">
+                            Inicio
+                        </li>
+                    </Link>
+                    <Link to='/category'>
+                        <li onClick={displayMenu} className="nav__list--item">
+                            Categorias
+                        </li>
+                    </Link>
+                    <Link to='/about-us'>
+                        <li onClick={displayMenu} className="nav__list--item">
+                            Sobre Nosotros
+                        </li>
+                    </Link>
+                    <Link to="/contact-us">
+                        <li onClick={displayMenu} className="nav__list--item">
+                            Contacto
+                        </li>
+                    </Link>
+                </ul>
+            </div>
+        </nav>
+        {/* ========== Fin Nav Desplegable ========== */}
         </>
+
     )
 }
 

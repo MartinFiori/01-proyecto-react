@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import './Home.css'
+import './AboutUs.css'
 import Pacman from '../../components/Pacman/Pacman';
 import Img from '../../assets/home/home1.jpg'
 
-const Home = () => {
+const AboutUs = () => {
     const [loader, setLoader] = useState(true)
     useEffect(() => {
         setTimeout(() => {
@@ -40,4 +40,4 @@ const Home = () => {
     )
 }
 
-export default Home 
+export default AboutUs 

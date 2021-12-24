@@ -3,6 +3,9 @@
     flex-direction: column;
     width: 100%;
 }
+.toto{
+    font-size: 38px;
+}
 
 .contador {
     display: flex;
@@ -29,15 +32,13 @@
 
 
 .contador__boton,
-.contador__comprar,
-.contador__seguirComprando {
+.contador__comprar{
     cursor: pointer;
 }
 
 .contador__comprar,
 .contador__boton,
-.contador__cantidad,
-.contador__seguirComprando {
+.contador__cantidad {
     font-size: 1.6rem;
     color: #fff;
     height: 30px;
@@ -63,8 +64,7 @@
     margin-top: 25px;
 }
 
-.contador__comprar,
-.contador__seguirComprando {
+.contador__comprar{
     box-sizing: content-box;
     font-weight: bold;
     color: var(--white);
@@ -78,9 +78,9 @@
 }
 
 .contador__comprar{
-    background: transparent;
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
+    background: var(--primary-color);
+    color: #fff;
+    width: 100%;
 }
 
 .contador__stock {

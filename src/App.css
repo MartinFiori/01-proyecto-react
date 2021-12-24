@@ -47,3 +47,7 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
   border-radius: 50px;
 }
+
+.disabled{
+  pointer-events:none;
+}

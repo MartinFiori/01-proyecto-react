@@ -1,17 +1,13 @@
 import './ItemCount.css'
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 
 const ItemCount = ({stock, onAdd, addToCart})=>{
     const [count, setCount]= useState(0)
-    let [totalStock, setTotalStock]= useState(stock)
 
     const handleSumar = ()=>{
-        if (count < totalStock) {
             setCount( count + 1 )
             onAdd(count + 1)
-        }
         
     }
 
@@ -23,16 +19,13 @@ const ItemCount = ({stock, onAdd, addToCart})=>{
             setCount(
                 count-count
             )
-
-            setTotalStock(
-                totalStock-count
-            )
             addToCart()
     }
 
+
     return(
         <div className="contador__container">
-            <p className="contador__stock">Stock disponible:{totalStock}</p>
+            <p className="contador__stock">Stock disponible!</p>
             <div className="contador">
                 <button className="contador__boton" onClick={handleRestar}>
                     &minus;
@@ -45,16 +38,9 @@ const ItemCount = ({stock, onAdd, addToCart})=>{
                 </button>
             </div>
             <div className='containerCompra'>
-                <Link to="/products">
                     <button className="contador__comprar" onClick={handleComprar}>
-                        Añadir al carrito y seguir comprando
+                        Añadir al carrito
                     </button>
-                </Link>
-                <Link to="/cart">
-                    <button className='contador__seguirComprando'>
-                        Finalizar Compra
-                    </button>
-                </Link>
             </div>
         </div>
     )
