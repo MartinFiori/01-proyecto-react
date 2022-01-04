@@ -6,30 +6,27 @@ import CartWidget from '../CartWidget/CartWidget.jsx'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const [menuIsOpen, setMenuIsOpen] = useState([false, false]);
 
     const displayMenu = ()=>{
-        setMenuIsOpen(!menuIsOpen)
+        setMenuIsOpen([!menuIsOpen[0], false])
     }
 
-    const closeMenu = ()=>{
-        setMenuIsOpen(false)
-        console.log("el booleano del menu es: ", menuIsOpen)
-    }
+
 
     return(
         <>
         <header className="header">
-            <div onClick={displayMenu} className={`menu-btn ${menuIsOpen ? "open" : ""}`}>
+            <div onClick={displayMenu} className={`menu-btn ${menuIsOpen[0] ? "open" : ""}`}>
                 <div className="menu-btn__burger"></div>
             </div>
             <Link to='/'>
                 <img src={Logo}  alt="logo Brillandocon" className="header__img"/>
             </Link>
-            <CartWidget onClick={closeMenu} displayMenu={displayMenu} menuIsOpen={menuIsOpen}/>
+            <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
         </header>
         {/* ========== Inicio Nav Desplegable ========== */}
-        <nav className={`nav ${menuIsOpen ? "displayMenu" : ""}`} id="nav">
+        <nav className={`nav ${menuIsOpen[0] ? "displayMenu" : ""}`} id="nav">
             <div className="navOverlay"></div>
             <div className="nav__list--container">
                 <ul className="nav__list">

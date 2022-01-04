@@ -2,7 +2,7 @@ import './ItemCount.css'
 import React, { useState } from 'react';
 
 
-const ItemCount = ({stock, onAdd, addToCart})=>{
+const ItemCount = ({ onAdd, addToCart })=>{
     const [count, setCount]= useState(0)
 
     const handleSumar = ()=>{
@@ -13,6 +13,7 @@ const ItemCount = ({stock, onAdd, addToCart})=>{
 
     const handleRestar = ()=>{
         count >= 1 && setCount( count - 1 )
+        onAdd(count - 1)
     }
 
     const handleComprar = ()=>{
@@ -38,9 +39,13 @@ const ItemCount = ({stock, onAdd, addToCart})=>{
                 </button>
             </div>
             <div className='containerCompra'>
-                    <button className="contador__comprar" onClick={handleComprar}>
-                        Añadir al carrito
-                    </button>
+            {
+                count > 0 &&
+                <button className="contador__comprar" onClick={handleComprar}>
+                    Añadir al carrito
+                </button>
+            }
+
             </div>
         </div>
     )

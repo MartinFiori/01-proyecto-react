@@ -12,7 +12,8 @@ const ItemDetail = ({item}) => {
             img: item.img,
             price: item.price,
             name: item.name,
-            quantity: 0
+            color: item.colores,
+            quantity: 1
         }
     );
     
@@ -31,20 +32,23 @@ const ItemDetail = ({item}) => {
             <section className="detail">
                 <div className="detail__header">
                     <h2 className="detail__header--title">{item.name}</h2>
-                    <p className="detail__header--price">${item.price}</p>
+                    <p className="detail__header--price">{`$${item.price}`}</p>
                 </div>
                 <p className="detail__description"><i className="far fa-money-bill-alt detail__bill"></i> <span className="detail__discount"> 10%</span> de descuento pagando por transferencia bancaria</p>
                 <form className="detailForm">
                     <div>
                         <label htmlFor="color" className='detailForm--label'>Color:</label>
                         <select name="color" id="option" className='detailForm--select'>
-                            <option value="nekoNegro" className='detailForm--option'>negro</option>
-                            <option value="nekoAzul" className='detailForm--option'>azul</option>
-                            <option value="nekoVioleta" className='detailForm--option'>violeta</option>
+                            <option defaultValue={""} className='detailForm--option' readOnly>Elija el color</option>
+                            <option value={"rosa"} className='detailForm--option'>Rosa</option>
+                            <option value={"negro"} className='detailForm--option'>Negro</option>
+                            <option value={"azul"} className='detailForm--option'>Azul</option>
+                            <option value={"rojo"} className='detailForm--option'>Rojo</option>
+                            <option value={"verde"} className='detailForm--option'>Verde</option>
                         </select>
                     </div>
                 </form>
-                <ItemCount stock={item.stock} onAdd={onAdd} addToCart={addToCart}/>
+                <ItemCount onAdd={onAdd} addToCart={addToCart}/>
 
             </section>
         </div>
