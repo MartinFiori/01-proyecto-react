@@ -12,7 +12,7 @@ import Contact from '../../pages/Contact/Contact.jsx';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
-import { FavoriteProvider } from '../../context/LikeContext/LikeContext';
+import { FavoriteProvider } from '../../context/FavoriteContext/FavoriteContext';
 
 const AppRouter = () => {
     return(

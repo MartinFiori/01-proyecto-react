@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { localAPI } from "../config";
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList.jsx'
 import Pacman from "../Pacman/Pacman";
+import { FavoriteContext } from "../../context/FavoriteContext/FavoriteContext";
 
 
 const ItemListContainer = () =>{
+    const { favorites } = useContext(FavoriteContext)
     const [loading, setLoading] = useState(true)
     const [dataItems, setDataItems] = useState([])
     const productos = localAPI
@@ -31,6 +33,9 @@ const ItemListContainer = () =>{
             :
             <ItemList dataItems={dataItems}/>
         }
+        <button onClick={()=> console.log(favorites) }>
+            ver item likeados
+        </button>
         </>
     )
 }
