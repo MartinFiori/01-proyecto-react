@@ -5,15 +5,15 @@ import { CartContext } from '../../context/CartContext/CartContext';
 
 
 const ItemDetail = ({item}) => {
-    const { addProducts, carrito} = useContext(CartContext)
+    const { addProducts } = useContext(CartContext)
     const [itemCart, setItemCart] = useState(
         {
             id: item.id,
             img: item.img,
+            stock: item.stock,
             price: item.price,
             name: item.name,
-            color: item.colores,
-            quantity: 1
+            quantity: 0
         }
     );
     
@@ -48,7 +48,7 @@ const ItemDetail = ({item}) => {
                         </select>
                     </div>
                 </form>
-                <ItemCount onAdd={onAdd} addToCart={addToCart}/>
+                <ItemCount onAdd={onAdd} stock={item.stock} addToCart={addToCart}/>
 
             </section>
         </div>

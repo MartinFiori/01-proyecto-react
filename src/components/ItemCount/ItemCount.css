@@ -3,9 +3,7 @@
     flex-direction: column;
     width: 100%;
 }
-.toto{
-    font-size: 38px;
-}
+
 
 .contador {
     display: flex;
@@ -28,17 +26,18 @@
 }
 
 
-
-
-
 .contador__boton,
-.contador__comprar{
+.contador__comprar,
+.contador__finalizarCompra,
+.contador__seguirComprando{
     cursor: pointer;
 }
 
 .contador__comprar,
 .contador__boton,
-.contador__cantidad {
+.contador__cantidad,
+.contador__finalizarCompra,
+.contador__seguirComprando {
     font-size: 1.6rem;
     color: #fff;
     height: 30px;
@@ -64,7 +63,9 @@
     margin-top: 25px;
 }
 
-.contador__comprar{
+.contador__comprar,
+.contador__finalizarCompra,
+.contador__seguirComprando{
     box-sizing: content-box;
     font-weight: bold;
     color: var(--white);
@@ -85,5 +86,28 @@
 
 .contador__stock {
     font-size: 1.8rem;
+    color: #808080;
 }
 
+.productoComprado{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.productoComprado__icon{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.contador__seguirComprando,
+.contador__finalizarCompra{
+    background: var(--text-color);
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contador__seguirComprando{
+    background: var(--primary-color);
+}

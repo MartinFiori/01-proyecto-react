@@ -1,12 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
 
 const Item =({data})=>{
-    const toggleFavorite = (e)=>{
-        e.target.classList.toggle('fas');
-        e.target.classList.toggle('card__buttons--heart');
-    }
+    const [liked, setLiked] = useState(false);
+    const [favorites, setFavorites] = useState([]);
+
+    
+    
     return(
         <div className="card">
             <section className="card__header">
@@ -22,7 +23,7 @@ const Item =({data})=>{
                     <button className="card__buttons--buy">Ver Producto</button>
                 </Link>
                 <div className="card__buttons--container">
-                    <i className="far fa-heart card__buttons--icon" onClick={toggleFavorite}></i>
+                    <i className={`far fa-heart card__buttons--icon ${liked && "fas card__buttons--heart"}`} onClick={()=> {setLiked(!liked)}}></i>
                     <i className="fas fa-share-alt card__buttons--icon"></i>
                 </div>
             </section>

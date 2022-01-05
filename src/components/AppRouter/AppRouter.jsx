@@ -12,21 +12,24 @@ import Contact from '../../pages/Contact/Contact.jsx';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
+import { FavoriteProvider } from '../../context/LikeContext/LikeContext';
 
 const AppRouter = () => {
     return(
         <BrowserRouter>
             <CartProvider>
-                <NavBar/>
-                    <Routes>
-                        <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
-                        <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
-                        <Route path='/cart' element ={<Cart/>}/>
-                        <Route path='/about-us' element ={<AboutUs/>}/>
-                        <Route path='/contact-us' element ={<Contact/>}/>
-                        <Route path='/' element ={<ItemListContainer/>}/>
-                        <Route path='*' element ={<Error404/>}/>
-                    </Routes>
+                <FavoriteProvider>
+                    <NavBar/>
+                        <Routes>
+                            <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
+                            <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
+                            <Route path='/cart' element ={<Cart/>}/>
+                            <Route path='/about-us' element ={<AboutUs/>}/>
+                            <Route path='/contact-us' element ={<Contact/>}/>
+                            <Route path='/' element ={<ItemListContainer/>}/>
+                            <Route path='*' element ={<Error404/>}/>
+                        </Routes>
+                </FavoriteProvider>
             </CartProvider>
         </BrowserRouter>
     )
