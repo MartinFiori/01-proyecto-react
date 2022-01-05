@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { ClimbingBoxLoader } from 'react-spinners';
 
 const FavoriteContext = createContext();
@@ -16,11 +16,17 @@ const FavoriteProvider = ({children}) => {
     }
 
     
+    useEffect(() => {
+        if ('favorites' in localStorage) {
+            setFavorites(JSON.parse(localStorage.getItem('favorites')))
+        }
+    }, []);
     
     const info = {
         favorites,
         addFavorites,
-        removeFavorite
+        removeFavorite,
+        setFavorites
     }
 
     return(

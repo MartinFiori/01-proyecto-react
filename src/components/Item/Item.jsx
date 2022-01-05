@@ -1,11 +1,11 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
 import { FavoriteContext } from '../../context/FavoriteContext/FavoriteContext.jsx'
 
 const Item =({data})=>{
     const [liked, setLiked] = useState(false);
-    const { addFavorites, removeFavorite } = useContext(FavoriteContext)
+    const { addFavorites, removeFavorite, favorites } = useContext(FavoriteContext)
     const [favorite] = useState(
         {
             id: data.id,
@@ -15,6 +15,10 @@ const Item =({data})=>{
         }
     );
 
+    useEffect(() => {
+            localStorage.setItem('favorites', JSON.stringify(favorites))
+    }, [liked]);
+    
     const sendFavorite = ()=>{
         if (!liked) {
             addFavorites(favorite)
