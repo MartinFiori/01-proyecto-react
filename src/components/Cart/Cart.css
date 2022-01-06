@@ -1,0 +1,50 @@
+.emptyCartContainer{
+    max-width: 850px;
+    margin-inline: auto;
+    margin: 6rem auto 0;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.emptyCartContainer h2{
+    font-size: 2.6rem;
+    font-weight: bold;
+    position: relative;
+    top: -50px;
+    width: 205px;
+    background: #ededed;
+    text-align: center;
+}
+
+.emptyCart{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptyCart h3{
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.emptyCart img{
+    margin-right: 21px;
+}
+
+.emptyCart button{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 1.4rem;
+    border-radius: 10px;
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-top: 2rem;
+}
