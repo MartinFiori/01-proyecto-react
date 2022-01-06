@@ -4,16 +4,29 @@ import { Link } from 'react-router-dom';
 import './Cart.css'
 
 const CartPage = () => {
-    const { carrito } = useContext(CartContext);
+    const { carrito, setCarrito, deleteItem } = useContext(CartContext);
     
     useEffect(() => {
         console.log("productos dentro del cart: ", carrito)
-            console.log(carrito.length)
+            // console.log(carrito.length)
     }, []);
 
-    const subTotal = ()=>{
-
+    const handleIncrement = (card_id)=>{
+        setCarrito(cart =>
+            cart.map((item)=>
+                card_id === item.id ? {...item, quantity: item.quantity + ((item.stock > item.quantity ? 1:0))} : item
+            )
+        )
     }
+    const handleDecrement = (card_id)=>{
+        setCarrito(cart =>
+            cart.map((item)=>
+                card_id === item.id ? {...item, quantity: item.quantity - (item.quantity > 1 ? 1:0)} : item
+            )
+        )
+    }
+
+
     
     return(
         <div className='emptyCartContainer'>
@@ -25,9 +38,16 @@ const CartPage = () => {
                         carrito.length > 0 ?
                         carrito.map((prod, index)=>{
                             return(
-                                <li key={index}>
-                                    <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} />
+                                <li key={index} className='empty'>
+                                    <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
                                     <h3>{prod.name}</h3>
+                                    <button className='botones' onClick={()=>handleIncrement(prod.id)}>SUMAR</button>
+                                    <p>{prod.quantity}</p>
+                                    <button className='botones' onClick={()=>handleDecrement(prod.id)}>RESTAR</button>
+                                    <p>{prod.price}</p>
+                                    <p className='textito'>{prod.price*prod.quantity}</p>
+
+                                    <button className='botones' onClick={()=>deleteItem(prod)}> BORRAAR TODO</button>
                                 </li>
                             )
                         })

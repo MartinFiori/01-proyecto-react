@@ -1,4 +1,4 @@
-.emptyCartContainer{
+.emptyCartContainer {
     max-width: 850px;
     margin-inline: auto;
     margin: 6rem auto 0;
@@ -8,7 +8,7 @@
     color: var(--text-color);
 }
 
-.emptyCartContainer h2{
+.emptyCartContainer h2 {
     font-size: 2.6rem;
     font-weight: bold;
     position: relative;
@@ -18,13 +18,13 @@
     text-align: center;
 }
 
-.emptyCart{
+.emptyCart {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.emptyCart h3{
+.emptyCart h3 {
     font-size: 2.8rem;
     font-weight: bold;
     text-align: center;
@@ -32,11 +32,12 @@
     margin-left: 3rem;
 }
 
-.emptyCart img{
+.emptyCart img {
     margin-right: 21px;
+    filter: drop-shadow(400px 0 .1rem rgb(0, 0, 0));
 }
 
-.emptyCart button{
+.emptyCart button {
     font-size: 1.8rem;
     font-weight: bold;
     color: #fff;
@@ -47,4 +48,25 @@
     cursor: pointer;
     display: block;
     margin-top: 2rem;
+}
+
+.fotito {
+    width: 150px;
+    height: 150px;
+}
+.textito{
+    font-size: 5rem;
+}
+
+.botones{
+    font-size: 1rem;
+    padding: 1em;
+}
+
+.empty{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
 }

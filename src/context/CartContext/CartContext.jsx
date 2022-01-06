@@ -44,6 +44,7 @@ const CartProvider = ({children}) => {
 
     const carritoData = {
         carrito,
+        setCarrito,
         addProducts,
         deleteItem,
         totalPrice,
