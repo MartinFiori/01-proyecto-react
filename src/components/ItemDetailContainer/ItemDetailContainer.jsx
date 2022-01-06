@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
     const getItem = new Promise((resolve,reject)=>{
         setTimeout(() => {
             resolve(localAPI)
-        }, 2000);
+        }, 500);
     })
 
 

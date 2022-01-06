@@ -49,7 +49,6 @@ const ItemDetail = ({item}) => {
                     </div>
                 </form>
                 <ItemCount onAdd={onAdd} stock={item.stock} addToCart={addToCart}/>
-
             </section>
         </div>
     )

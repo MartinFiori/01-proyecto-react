@@ -21,7 +21,7 @@ const NavBar = () => {
                 <div className="menu-btn__burger"></div>
             </div>
             <Link to='/'>
-                <img src={Logo}  alt="logo Brillandocon" className="header__img"/>
+                <img src={Logo}  alt="logo Brillandocon" className="header__img" onClick={()=>setMenuIsOpen([false,false])}/>
             </Link>
             <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
         </header>

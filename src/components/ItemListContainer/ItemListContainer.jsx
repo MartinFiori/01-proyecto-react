@@ -7,7 +7,6 @@ import { FavoriteContext } from "../../context/FavoriteContext/FavoriteContext";
 
 
 const ItemListContainer = () =>{
-    const { favorites, setFavorites } = useContext(FavoriteContext)
     const [loading, setLoading] = useState(true)
     const [dataItems, setDataItems] = useState([])
     const productos = localAPI
@@ -33,13 +32,7 @@ const ItemListContainer = () =>{
             :
             <ItemList dataItems={dataItems}/>
         }
-        <button onClick={()=> console.log(favorites) }>
-            ver item likeados
-        </button>
-        <br />
-        <button onClick={()=>{setFavorites([])}}>
-            ELIMANASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        </button>
+
         </>
     )
 }

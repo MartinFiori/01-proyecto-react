@@ -111,3 +111,9 @@
 .contador__seguirComprando{
     background: var(--primary-color);
 }
+
+.disabledButtons{
+    transition: color 250ms ease;
+    pointer-events: none;
+    background:#959595;
+}

@@ -28,7 +28,7 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
         <div className="contador__container">
             <p className="contador__stock">Unidades disponibles: {totalStock}</p>
             <div className="contador">
-                <button className="contador__boton" onClick={handleRestar}>
+                <button className={`contador__boton ${count === 0 && "disabledButtons"}`} onClick={handleRestar}>
                     &minus;
                 </button>
                 <span className="contador__cantidad">
@@ -41,7 +41,7 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
             <div className='containerCompra'>
             {
                 stock === totalStock ?
-                <button className="contador__comprar" onClick={handleComprar}>
+                <button className={`contador__comprar ${count === 0 && "disabledButtons"}`} onClick={handleComprar}>
                     Añadir al carrito
                 </button>
                 :

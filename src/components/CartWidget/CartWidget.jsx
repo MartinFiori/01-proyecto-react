@@ -59,7 +59,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                         <span className='finalizarCompra--number'>{`$${totalPrice}`}</span>
                                     </div>
                                     <Link to="cart">
-                                        <button className='finalizarCompra--btn'>
+                                        <button className='finalizarCompra--btn' onClick={()=>handleCloseCartWidget()}>
                                             Realizar compra
                                         </button>
                                     </Link>

@@ -7,7 +7,7 @@ import ItemListContainer from '../../components/ItemListContainer/ItemListContai
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.jsx'
 import AboutUs from '../../pages/AboutUs/AboutUs.jsx';
 import Error404 from '../../pages/Error404/Error404.jsx';
-import Cart from '../../pages/Cart/Cart';
+import CartPage from '../../pages/Cart/CartPage.jsx';
 import Contact from '../../pages/Contact/Contact.jsx';
 
 // Context
@@ -23,7 +23,7 @@ const AppRouter = () => {
                         <Routes>
                             <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
                             <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
-                            <Route path='/cart' element ={<Cart/>}/>
+                            <Route path='/cart' element ={<CartPage/>}/>
                             <Route path='/about-us' element ={<AboutUs/>}/>
                             <Route path='/contact-us' element ={<Contact/>}/>
                             <Route path='/' element ={<ItemListContainer/>}/>
