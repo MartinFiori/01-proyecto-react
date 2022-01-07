@@ -7,7 +7,7 @@ import { CartContext } from '../../context/CartContext/CartContext';
 
 
 const CartWidget = ({ setMenuIsOpen, value })=>{
-    const { carrito, deleteItem, totalPrice } = useContext(CartContext);
+    const { carrito, deleteItem, totalPrice, eliminarTodo, cartLength } = useContext(CartContext);
     const displayCartWidget = ()=>{
         setMenuIsOpen(({1:modal2})=> [false, !modal2])
     }
@@ -18,7 +18,10 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
     
     return(
             <div>
-                <i onClick={displayCartWidget} className="fas fa-shopping-cart cart" ></i>
+                <div className="cartContainer--icon"onClick={displayCartWidget}>
+                    <i className="fas fa-shopping-cart cart" ></i>
+                    <p>{cartLength}</p>
+                </div>
                 <section className='cartContainer' id='cartContainer'>
                     <div className={`cartContainer__overlay ${value[1] ? "displayCartContainer" : ""}`}></div>
                     <div className={`cartContainer__content ${value[1] ? "displayCartContainer" : ""}`}>
@@ -55,7 +58,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                 carrito.length !== 0 && 
                                 <>
                                     <div className="finalizarCompra">
-                                        <p className='finalizarCompra--total'>Total:</p>
+                                        <p className='finalizarCompra--total'>Subtotal:</p>
                                         <span className='finalizarCompra--number'>{`$${totalPrice}`}</span>
                                     </div>
                                     <Link to="cart">
@@ -63,6 +66,9 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                             Realizar compra
                                         </button>
                                     </Link>
+                                    <button className='finalizarCompra--btn' onClick={eliminarTodo}>
+                                        ELIMINAR
+                                    </button>
                                 </>
                             }
                     </div>

@@ -14,7 +14,7 @@ const ItemListContainer = () =>{
     const requesData = new Promise((resolve)=>{
         setTimeout(() => {
             resolve(productos)
-        }, 2000);
+        }, 1000);
     })
 
     useEffect(() => {

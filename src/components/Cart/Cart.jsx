@@ -3,30 +3,13 @@ import { CartContext } from '../../context/CartContext/CartContext';
 import { Link } from 'react-router-dom';
 import './Cart.css'
 
-const CartPage = () => {
-    const { carrito, setCarrito, deleteItem } = useContext(CartContext);
+const Cart = () => {
+    const { carrito, deleteItem, handleDecrement,handleIncrement } = useContext(CartContext);
     
     useEffect(() => {
         console.log("productos dentro del cart: ", carrito)
             // console.log(carrito.length)
     }, []);
-
-    const handleIncrement = (card_id)=>{
-        setCarrito(cart =>
-            cart.map((item)=>
-                card_id === item.id ? {...item, quantity: item.quantity + ((item.stock > item.quantity ? 1:0))} : item
-            )
-        )
-    }
-    const handleDecrement = (card_id)=>{
-        setCarrito(cart =>
-            cart.map((item)=>
-                card_id === item.id ? {...item, quantity: item.quantity - (item.quantity > 1 ? 1:0)} : item
-            )
-        )
-    }
-
-
     
     return(
         <div className='emptyCartContainer'>
@@ -38,16 +21,28 @@ const CartPage = () => {
                         carrito.length > 0 ?
                         carrito.map((prod, index)=>{
                             return(
-                                <li key={index} className='empty'>
-                                    <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
-                                    <h3>{prod.name}</h3>
-                                    <button className='botones' onClick={()=>handleIncrement(prod.id)}>SUMAR</button>
-                                    <p>{prod.quantity}</p>
-                                    <button className='botones' onClick={()=>handleDecrement(prod.id)}>RESTAR</button>
-                                    <p>{prod.price}</p>
-                                    <p className='textito'>{prod.price*prod.quantity}</p>
-
-                                    <button className='botones' onClick={()=>deleteItem(prod)}> BORRAAR TODO</button>
+                                <li key={index} className='itemList'>
+                                    <div className='itemList__details--info'>
+                                        <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
+                                        <div>
+                                            <h3>{prod.name}</h3>
+                                            <p>${prod.quantity*prod.price}</p>
+                                        </div>
+                                    </div>
+                                    <div className="itemList__details--quantity">
+                                        <button onClick={()=>handleDecrement(prod.id)}>
+                                            <i className="fas fa-minus"></i>
+                                        </button>
+                                        <p>{prod.quantity}</p>
+                                        <button onClick={()=>handleIncrement(prod.id)}>
+                                            <i className="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div className="itemList__details--delete">
+                                        <button onClick={()=>deleteItem(prod)}>
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
                                 </li>
                             )
                         })
@@ -67,4 +62,4 @@ const CartPage = () => {
     )
 }
 
-export default CartPage 
+export default Cart

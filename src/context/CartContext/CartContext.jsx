@@ -9,14 +9,20 @@ const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart' || "[]"))
 const CartProvider = ({children}) => {
     const [carrito, setCarrito] = useState(cartFromLocalStorage);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [cartLength, setCartLength] = useState(0);
     
     useEffect(() => {
         setTotalPrice(total)
+        setCartLength(cartLengthReduce)
         localStorage.setItem('cart',JSON.stringify(carrito))
+        console.log("la cantidad de items en el cart es de: ",cartLength);
     }, [carrito]);
 
+    const eliminarTodo = ()=>{
+        setCarrito([])
+    }
 
-    
+    const cartLengthReduce = carrito.reduce((acc, el)=> acc+ el.quantity, 0)
 
     const total = carrito.reduce((acc, el)=> acc + (el.quantity * el.price),0)
 
@@ -36,10 +42,23 @@ const CartProvider = ({children}) => {
     }
     
     const deleteItem = (item) =>{
-        let found = carrito.filter(product => product.id !== item.id);
-        setCarrito(found);
+        setCarrito(carrito.filter(x=> x.id !== item.id))
     }
 
+    const handleIncrement = (card_id)=>{
+        setCarrito(cart =>
+            cart.map((item)=>
+                card_id === item.id ? {...item, quantity: item.quantity + ((item.stock > item.quantity ? 1:0))} : item
+            )
+        )
+    }
+    const handleDecrement = (card_id)=>{
+        setCarrito(cart =>
+            cart.map((item)=>
+                card_id === item.id ? {...item, quantity: item.quantity - (item.quantity > 1 ? 1:0)} : item
+            )
+        )
+    }
 
 
     const carritoData = {
@@ -48,6 +67,10 @@ const CartProvider = ({children}) => {
         addProducts,
         deleteItem,
         totalPrice,
+        eliminarTodo,
+        cartLength,
+        handleIncrement,
+        handleDecrement,
     }
 
 
