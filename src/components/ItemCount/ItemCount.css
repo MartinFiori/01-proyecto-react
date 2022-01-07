@@ -4,25 +4,45 @@
     width: 100%;
 }
 
-
 .contador {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding-block: 1rem;
-    align-self: center;
-    width: 250px;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-.contador__boton {
-    width: 33.3%;
+.contador button{
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    border-radius: 0;
+    background: var(--primary-color);
+    border: 0px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contador__cantidad {
-    width: 33.3%;
+.contador button:first-of-type{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.contador button:last-of-type{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.contador span{
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
     text-align: center;
-    background: rgb(170, 170, 170);
-    line-height: 30px;
+    width: 125px;
+    height: 45px;
+    font-size: 2rem;
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    line-height:42px;
 }
 
 
@@ -34,8 +54,6 @@
 }
 
 .contador__comprar,
-.contador__boton,
-.contador__cantidad,
 .contador__finalizarCompra,
 .contador__seguirComprando {
     font-size: 1.6rem;
@@ -48,13 +66,7 @@
     background: var(--primary-color);
 }
 
-.contador__boton,
-.contador__cantidad{
-    cursor: pointer;
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 30px;
-}
+
 
 .containerCompra{
     display: flex;
@@ -112,8 +124,8 @@
     background: var(--primary-color);
 }
 
-.disabledButtons{
-    transition: color 250ms ease;
+.disabled{
+    background: #785966 !important;
     pointer-events: none;
-    background:#959595;
 }
+

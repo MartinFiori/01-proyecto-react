@@ -26,14 +26,14 @@ const Cart = () => {
                                         <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
                                         <div>
                                             <h3>{prod.name}</h3>
-                                            <p>${prod.quantity*prod.price}</p>
+                                            <p>Subtotal: <span>{`$${prod.quantity*prod.price}`}</span></p>
                                         </div>
                                     </div>
                                     <div className="itemList__details--quantity">
                                         <button onClick={()=>handleDecrement(prod.id)}>
                                             <i className="fas fa-minus"></i>
                                         </button>
-                                        <p>{prod.quantity}</p>
+                                        <span>{prod.quantity}</span>
                                         <button onClick={()=>handleIncrement(prod.id)}>
                                             <i className="fas fa-plus"></i>
                                         </button>

@@ -1,3 +1,7 @@
+.emptyCartContainer button{
+    cursor: pointer;
+}
+
 .emptyCartContainer {
     max-width: 850px;
     margin-inline: auto;
@@ -45,36 +49,48 @@
     border-radius: 10px;
     background: var(--primary-color);
     border: none;
-    cursor: pointer;
     display: block;
     margin-top: 2rem;
 }
 
-
-
-
 .itemList{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    max-width: 788px;
     align-items: center;
+    margin-bottom: 3rem;
 }
 
 .itemList__details{
     display: flex;
     flex-direction: row;
-    width: 60%;
+}
+
+.itemList span{
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .itemList__details--info{
     display: flex;
     flex-direction: row;
+    width: 50%;
 }
 
 .itemList__details--info img{
     width: 100px;
     height: 100px;
     border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.itemList__details--info h3{
+    font-size: 2.4rem;
+    margin-bottom: .4rem;
+}
+
+.itemList__details--info p{
+    font-size: 1.8rem;
 }
 
 .itemList__details--quantity{
@@ -87,4 +103,63 @@
     display: flex;
     justify-content: center;
     width: 20%;
+}
+
+.itemList__details--quantity {
+    display: flex;
+    justify-content: center;
+}
+
+.itemList__details--quantity button{
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    border-radius: 0;
+    background: var(--primary-color);
+    border: 0px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemList__details--quantity button:first-of-type{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.itemList__details--quantity button:last-of-type{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.itemList__details--quantity span{
+    border-top: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    text-align: center;
+    width: 125px;
+    height: 45px;
+    font-size: 2rem;
+    color: #000;
+    font-weight: bold;
+    display: inline-block;
+    line-height:42px;
+}
+
+.itemList__details--delete button{
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.itemList__details--delete button:first-child{
+    color: #fff;
+    font-size: 30px;
 }

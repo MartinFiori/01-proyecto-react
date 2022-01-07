@@ -12,13 +12,11 @@ import Contact from '../../pages/Contact/Contact.jsx';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
-import { FavoriteProvider } from '../../context/FavoriteContext/FavoriteContext';
 
 const AppRouter = () => {
     return(
         <BrowserRouter>
             <CartProvider>
-                <FavoriteProvider>
                     <NavBar/>
                         <Routes>
                             <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
@@ -29,7 +27,6 @@ const AppRouter = () => {
                             <Route path='/' element ={<ItemListContainer/>}/>
                             <Route path='*' element ={<Error404/>}/>
                         </Routes>
-                </FavoriteProvider>
             </CartProvider>
         </BrowserRouter>
     )

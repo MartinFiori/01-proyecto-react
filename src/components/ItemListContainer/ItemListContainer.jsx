@@ -3,7 +3,6 @@ import { localAPI } from "../config";
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList.jsx'
 import Pacman from "../Pacman/Pacman";
-import { FavoriteContext } from "../../context/FavoriteContext/FavoriteContext";
 
 
 const ItemListContainer = () =>{
