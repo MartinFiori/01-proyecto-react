@@ -63,12 +63,13 @@ const CartProvider = ({children}) => {
 
     const carritoData = {
         carrito,
+        totalPrice,
+        total,
+        cartLength,
         setCarrito,
         addProducts,
         deleteItem,
-        totalPrice,
         eliminarTodo,
-        cartLength,
         handleIncrement,
         handleDecrement,
     }

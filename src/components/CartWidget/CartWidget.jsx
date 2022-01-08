@@ -1,7 +1,6 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './CartWidget.css'
 import { Link } from 'react-router-dom';
-
 // Context
 import { CartContext } from '../../context/CartContext/CartContext';
 
@@ -15,6 +14,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
     const handleCloseCartWidget = ()=>{
         setMenuIsOpen([false,false])
     }
+
     
     return(
             <div>

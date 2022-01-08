@@ -2,6 +2,7 @@ import React, { useState, useContext} from 'react';
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount.jsx'
 import { CartContext } from '../../context/CartContext/CartContext';
+import { Link } from 'react-router-dom';
 
 
 const ItemDetail = ({item}) => {
@@ -28,7 +29,9 @@ const ItemDetail = ({item}) => {
     };
     return(
         <div className="detailContainer">
+            <Link to={`/detail`}>
             <img src={require(`../../assets/cards/${item.img}`)} className="detailContainer__img" alt={item.name}/>
+            </Link>
             <section className="detail">
                 <div className="detail__header">
                     <h2 className="detail__header--title">{item.name}</h2>

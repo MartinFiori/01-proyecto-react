@@ -19,8 +19,8 @@ const AppRouter = () => {
             <CartProvider>
                     <NavBar/>
                         <Routes>
-                            <Route path='/products/:idCategory' element ={<ItemListContainer/>}/>
                             <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
+                            <Route path='/:category' element ={<ItemListContainer/>}/>
                             <Route path='/cart' element ={<CartPage/>}/>
                             <Route path='/about-us' element ={<AboutUs/>}/>
                             <Route path='/contact-us' element ={<Contact/>}/>

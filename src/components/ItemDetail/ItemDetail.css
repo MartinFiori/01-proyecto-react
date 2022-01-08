@@ -11,9 +11,8 @@
 
 .detailContainer__img {
     width: 500px;
-    height: auto;
+    height: 100%;
 }
-
 
 .detail {
     margin: 15px;
