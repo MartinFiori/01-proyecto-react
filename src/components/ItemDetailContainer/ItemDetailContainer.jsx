@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 // Firebase
 import db from '../../Firebase.js';
 import {collection, getDocs} from 'firebase/firestore'
+import BackToMenu from '../BackToMenu/BackToMenu.jsx';
 
 const ItemDetailContainer = () => {
     console.log('parametros por ruta', useParams());
@@ -48,6 +49,7 @@ const ItemDetailContainer = () => {
     
     return(
         <>
+        <BackToMenu/>
         {        
             loading ?
                 <Pacman/>

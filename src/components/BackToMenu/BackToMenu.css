@@ -1,0 +1,30 @@
+.backToMenuContainer__inner{
+    background: var(--primary-color);
+    width: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    clip-path: circle(15% at 16% 50%);
+    cursor: pointer;
+    transition: clip-path 500ms ease;
+}
+
+.backToMenuContainer__inner:hover{
+    clip-path: circle(75%);
+}
+
+.backToMenuContainer__inner p{
+    font-size: 1.6rem;
+    text-align: right;
+}
+
+.backToMenuContainer__inner .backIcon{
+    flex-basis: 30%;
+}
+
+.backToMenuContainer__inner p{
+    color: #fff;
+}
