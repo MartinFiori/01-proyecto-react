@@ -31,8 +31,6 @@ const ItemListContainer = () =>{
 
     useEffect(() => {
         getProducts(db).then((datas)=>{
-            console.log(category);
-            console.log(datas);
                 if (category) {
                     datas.filter(data=>{
                         if (data.category === category) {

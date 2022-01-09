@@ -6,7 +6,7 @@ import Pacman from '../Pacman/Pacman.jsx'
 import { useParams } from 'react-router-dom';
 // Firebase
 import db from '../../Firebase.js';
-import {collection, getDocs} from 'firebase/firestore'
+import {doc, getDoc} from 'firebase/firestore'
 import BackToMenu from '../BackToMenu/BackToMenu.jsx';
 
 const ItemDetailContainer = () => {
@@ -22,26 +22,24 @@ const ItemDetailContainer = () => {
     //     }, 500);
     // })
 
-    const getProducts = async (db)=>{
-        const productosCol = collection(db,'products');
-        const productosSnapshot = await getDocs(productosCol);
-        const productosList = productosSnapshot.docs.map(doc=>{
-            let product = doc.data();
-            console.log(product);
-            console.log(doc.id);
-            product.id = doc.id
-            return product
-        });
-        return productosList;
-    };
+    const getProduct = async (db)=>{
+        const docRef = doc(db, 'products', id);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            console.log("document data: ", docSnap.data());
+            let producto = docSnap.data();
+            producto.id = docSnap.id;
+            setItem(producto)
+            setLoading(false)
+        }
+    }
 
 
     useEffect(() => {
-        getProducts(db).then(resultProducts=>{
+        getProduct(db).then(resultProducts=>{
             resultProducts.filter((resultProduct)=>{
                 if (resultProduct.id === id) {
                     setItem(resultProduct)
-                    setLoading(false)
                 }
             })
         })

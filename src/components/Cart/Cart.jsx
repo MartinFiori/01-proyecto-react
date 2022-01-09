@@ -36,11 +36,11 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <div className="itemList__details--quantity">
-                                        <button onClick={()=>handleDecrement(prod.id)}>
+                                        <button onClick={()=>handleDecrement(prod.id)} className={prod.quantity === 1 && 'disabled'}>
                                             <i className="fas fa-minus"></i>
                                         </button>
                                         <span>{prod.quantity}</span>
-                                        <button onClick={()=>handleIncrement(prod.id)}>
+                                        <button onClick={()=>handleIncrement(prod.id)} className={prod.quantity === prod.stock && 'disabled'}>
                                             <i className="fas fa-plus"></i>
                                         </button>
                                     </div>

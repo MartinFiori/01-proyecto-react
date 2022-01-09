@@ -10,7 +10,7 @@ const BackToMenu = () => {
     return(
         <div className='backToMenuContainer'>
             <Link to={"/"}>
-                <div class="backToMenuContainer__inner">
+                <div className="backToMenuContainer__inner">
                         <BackIcon fill={"white"} width="24px" style={{ height: 24, width: 24 }} className="backIcon"/>
                     <p>Volver al menu principal</p>
                 </div>
