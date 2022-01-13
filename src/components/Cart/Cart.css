@@ -38,7 +38,7 @@
 
 .emptyCart img {
     margin-right: 21px;
-    filter: drop-shadow(400px 0 .1rem rgb(0, 0, 0));
+    filter: drop-shadow(0 .3rem 1px rgba(0, 0, 0, 0.3));
 }
 
 .emptyCart button {

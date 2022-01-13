@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Item =({data})=>{
     const [liked, setLiked] = useState(false);
+    const { name, price, img, id, description } = data
     // const { addFavorites, removeFavorite, favorites } = useContext(FavoriteContext)
     // const [favorite] = useState(
     //     {
@@ -31,15 +32,15 @@ const Item =({data})=>{
     return(
         <div className="card">
             <section className="card__header">
-                <h3 className="card__header--title">{data.name}</h3>
-                <p className="card__header--price">{`$${data.price}`}</p>
+                <h3 className="card__header--title">{name}</h3>
+                <p className="card__header--price">{`$${price}`}</p>
             </section>
-            <img className="card__img" src={require(`../../assets/cards/${data.img}`)} alt={data.name} />
+            <img className="card__img" src={require(`../../assets/cards/${img}`)} alt={name} />
             <p className="card__description">
-                {data.description}
+                {description}
             </p>
             <section className="card__buttons">
-                <Link to={`/detail/${data.id}`}>
+                <Link to={`/detail/${id}`}>
                     <button className="card__buttons--buy">Ver Producto</button>
                 </Link>
                 <div className="card__buttons--container">

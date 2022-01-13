@@ -15,7 +15,7 @@ const Cart = () => {
     
     return(
         <>
-            <BackToMenu/>
+            <BackToMenu place={"/"}/>
             <div className='emptyCartContainer'>
                 <h2>
                     Su Carrito
@@ -36,11 +36,11 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <div className="itemList__details--quantity">
-                                        <button onClick={()=>handleDecrement(prod.id)} className={prod.quantity === 1 && 'disabled'}>
+                                        <button onClick={()=>handleDecrement(prod.id)} className={`${prod.quantity == 1 && 'disabled'}`}>
                                             <i className="fas fa-minus"></i>
                                         </button>
                                         <span>{prod.quantity}</span>
-                                        <button onClick={()=>handleIncrement(prod.id)} className={prod.quantity === prod.stock && 'disabled'}>
+                                        <button onClick={()=>handleIncrement(prod.id)} className={`${prod.quantity == prod.stock && 'disabled'}`}>
                                             <i className="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -64,10 +64,10 @@ const Cart = () => {
                         </div>
                     }
                 {
-                    carrito && 
+                    carrito.length !== 0 && 
                         <div className='procesoPagoContainer'>
-                            <p>Total:<span className='procesoPagoContainer--total'> ${total}</span></p>
-                            <Link to="/paymet-process">
+                            <p>Total:<span className='procesoPagoContainer--total'> {total}&nbsp;$</span></p>
+                            <Link to='/payment-process'>
                                 <button className='procesoPago'>
                                     <CartIcon width={24} height={24} fill={"var(--primary-color)"} stroke={"#fff"}/>
                                     <span>Proceso de Pago</span>

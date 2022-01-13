@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import './Error404.css'
+import styled from 'styled-components';
 
 
 

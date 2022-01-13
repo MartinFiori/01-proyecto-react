@@ -48,7 +48,7 @@ const CartProvider = ({children}) => {
     const handleIncrement = (card_id)=>{
         setCarrito(cart =>
             cart.map((item)=>
-                card_id === item.id ? {...item, quantity: item.quantity + ((item.stock > item.quantity ? 1:0))} : item
+                card_id === item.id ? {...item, quantity: item.quantity + ((item.stock > item.quantity ? 1:0))} : item,
             )
         )
     }

@@ -36,18 +36,13 @@ const ItemDetailContainer = () => {
 
 
     useEffect(() => {
-        getProduct(db).then(resultProducts=>{
-            resultProducts.filter((resultProduct)=>{
-                if (resultProduct.id === id) {
-                    setItem(resultProduct)
-                }
-            })
-        })
-    }, [db])
+        getProduct(db)
+        console.log("esto es lo que pasa",db)
+    }, [id])
     
     return(
         <>
-        <BackToMenu/>
+        <BackToMenu place={'/'}/>
         {        
             loading ?
                 <Pacman/>

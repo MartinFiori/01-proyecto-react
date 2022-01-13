@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 // COMPONENTS
 import './ItemListContainer.css'
-import { localAPI } from "../config";
 import ItemList from '../ItemList/ItemList.jsx'
 import Pacman from "../Pacman/Pacman";
 

@@ -5,14 +5,14 @@ import BackIcon from '../svg/BackIcon'
 import { Link } from 'react-router-dom';
 
 
-const BackToMenu = () => {
+const BackToMenu = ({place}) => {
     
     return(
         <div className='backToMenuContainer'>
-            <Link to={"/"}>
+            <Link to={place}>
                 <div className="backToMenuContainer__inner">
                         <BackIcon fill={"white"} width="24px" style={{ height: 24, width: 24 }} className="backIcon"/>
-                    <p>Volver al menu principal</p>
+                    <p>Volver atras</p>
                 </div>
             </Link>
         </div>
