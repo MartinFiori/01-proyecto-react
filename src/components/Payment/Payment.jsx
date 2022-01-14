@@ -4,6 +4,9 @@ import './Payment.css';
 import {CartContext} from '../../context/CartContext/CartContext.jsx';
 import BackToMenu from '../BackToMenu/BackToMenu';
 
+// React router DOM
+import { Link } from 'react-router-dom';
+
 // Firebase
 import db from '../../Firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -19,7 +22,7 @@ const Payment = () => {
         userTelephone:'',
         userEmail:'',
     });
-    const [orderId, setOrderId] = useState();
+    const [orderId, setOrderId] = useState(null);
 
 
     const getData =(e) =>{
@@ -29,25 +32,24 @@ const Payment = () => {
 
     const sendOrder = (e)=>{
         e.preventDefault();
-        let order = {}
+        let order = {};
         order.buyer = userInfo;
         order.cart = carrito;
         order.total = (90*total)/100;
-        order.date = `el día ${dateArgentina} a las ${horaArgentina}`
+        order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
         console.log("pedido final final: ", order);
-        pushOrder(order)
-        // eliminarTodo()
+        pushOrder(order);
+        // eliminarTodo();
     }
 
     const pushOrder = async (orderSent) =>{
         const orderFirebase = collection(db, 'orders');
         const order = await addDoc(orderFirebase, orderSent);
         setOrderId(order.id)
+        console.log(orderId)
     };
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-    }
+
     
     return(
         <>
@@ -55,14 +57,14 @@ const Payment = () => {
         <div className='Payment'>
             <div className='formContainer'>
                 <h2>Información de contacto</h2>
-                <form action="" className='payment-form' onSubmit={handleSubmit}>
+                <form action="" className='payment-form'>
                     <label htmlFor="userName">Nombre y Apellido:</label>
                     <input type="text" name="userName" onChange={getData}/>
                     <label htmlFor="userTelephone">Teléfono:</label>
                     <input type="number" name="userTelephone" onChange={getData}/>
                     <label htmlFor="userEmail">Correo electrónico:</label>
                     <input type="email" name="userEmail" onChange={getData}/>
-                    <input type="submit" value="Confirmar pedido" onClick={sendOrder}/>
+                        <input type="submit" value="Confirmar pedido" onClick={(e)=>sendOrder(e)}/>
                 </form>
             </div>
             <div className='listItems-container'>
@@ -84,7 +86,7 @@ const Payment = () => {
                 </ul>
                 <div className='listItems-container__subtotal footer-text'>
                     <p>Subtotal:</p>
-                    <span>{total}&nbsp;$</span>
+                    <span>ARS&nbsp;{total}&nbsp;$</span>
                 </div>
                 <div className="listItems-container__total footer-text">
                     <div className='listItems-container__total--info footer-text'>

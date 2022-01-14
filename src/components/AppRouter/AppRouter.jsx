@@ -10,6 +10,8 @@ import Error404Page from '../../pages/Error404Page/Error404Page.jsx';
 import CartPage from '../../pages/Cart/CartPage.jsx';
 import Contact from '../../pages/Contact/Contact.jsx';
 import PaymentContainer from '../../pages/PaymetContainer/PaymentContainer.jsx';
+import TicketPage from '../../pages/TicketPage/TicketPage';
+
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
@@ -25,6 +27,7 @@ const AppRouter = () => {
                             <Route path='/cart' element ={<CartPage/>}/>
                             <Route path='/about-us' element ={<AboutUs/>}/>
                             <Route path='/contact-us' element ={<Contact/>}/>
+                            <Route path='/ticket-page' element ={<TicketPage/>}/>
                             <Route path='/payment-process' element={<PaymentContainer/>}/>
                             <Route path='/' element ={<ItemListContainer/>}/>
                             <Route path='*' element ={<Error404Page/>}/>

@@ -56,8 +56,13 @@ input {
     background: #064349;
     cursor: pointer;
     color: #fff;
+    transition: filter 150ms ease-in;
+    width: 100%;
 }
 
+.payment-form input:last-child:hover {
+    filter: brightness(1.2);
+}
 
 
 .listItems-container {

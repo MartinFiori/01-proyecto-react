@@ -141,7 +141,7 @@
     color: #064349;
     font-weight: bold;
     display: inline-block;
-    line-height: 26px;
+    line-height: 24px;
 }
 
 .itemList__details--delete span {
@@ -177,6 +177,11 @@
     background: var(--primary-color);
     border: none;
     border-radius: 5px;
+    transition: filte 300ms ease;
+}
+
+.procesoPago:hover{
+    filter: brightness(1.2);
 }
 
 .procesoPago span {
