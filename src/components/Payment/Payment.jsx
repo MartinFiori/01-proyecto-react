@@ -1,8 +1,12 @@
 // Components
-import React, {useContext, useState, useEffect} from 'react';
-import './Payment.css'
-import {CartContext} from '../../context/CartContext/CartContext.jsx'
+import React, {useContext, useState} from 'react';
+import './Payment.css';
+import {CartContext} from '../../context/CartContext/CartContext.jsx';
 import BackToMenu from '../BackToMenu/BackToMenu';
+
+// Firebase
+import db from '../../Firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 
 const Payment = () => {
@@ -14,7 +18,6 @@ const Payment = () => {
         userName: '',
         userTelephone:'',
         userEmail:'',
-        orderTime: `el día ${dateArgentina} a las ${horaArgentina}`,
     });
 
 
@@ -28,10 +31,16 @@ const Payment = () => {
         let order = {}
         order.buyer = userInfo;
         order.cart = carrito;
-        order.total = (90*total)/100
+        order.total = (90*total)/100;
+        order.date = `el día ${dateArgentina} a las ${horaArgentina}`
         console.log("pedido final final: ", order);
+        pushOrder(order)
     }
 
+    const pushOrder = async (orderSent) =>{
+        const orderFirebase = collection(db, 'orders');
+        const order = await addDoc(orderFirebase, orderSent);
+    };
 
 
     

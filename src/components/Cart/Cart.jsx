@@ -66,7 +66,7 @@ const Cart = () => {
                 {
                     carrito.length !== 0 && 
                         <div className='procesoPagoContainer'>
-                            <p>Total:<span className='procesoPagoContainer--total'> {total}&nbsp;$</span></p>
+                            <p>Subtotal:<span className='procesoPagoContainer--total'> {total}&nbsp;$</span></p>
                             <Link to='/payment-process'>
                                 <button className='procesoPago'>
                                     <CartIcon width={24} height={24} fill={"var(--primary-color)"} stroke={"#fff"}/>
