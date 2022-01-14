@@ -15,7 +15,6 @@ const CartProvider = ({children}) => {
         setTotalPrice(total)
         setCartLength(cartLengthReduce)
         localStorage.setItem('cart',JSON.stringify(carrito))
-        console.log("la cantidad de items en el cart es de: ",cartLength);
     }, [carrito]);
 
     const eliminarTodo = ()=>{

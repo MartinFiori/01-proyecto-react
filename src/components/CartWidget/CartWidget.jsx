@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext/CartContext';
 
 
 const CartWidget = ({ setMenuIsOpen, value })=>{
-    const { carrito, deleteItem, totalPrice, eliminarTodo, cartLength } = useContext(CartContext);
+    const { carrito, deleteItem, totalPrice, cartLength } = useContext(CartContext);
     const displayCartWidget = ()=>{
         setMenuIsOpen(({1:modal2})=> [false, !modal2])
     }
@@ -66,9 +66,6 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                             Realizar compra
                                         </button>
                                     </Link>
-                                    <button className='finalizarCompra--btn' onClick={eliminarTodo}>
-                                        ELIMINAR
-                                    </button>
                                 </>
                             }
                     </div>

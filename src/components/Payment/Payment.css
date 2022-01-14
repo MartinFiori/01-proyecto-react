@@ -81,7 +81,6 @@ input {
 .listItems__item--imgInfo img {
     width: 64px;
     border-radius: 8px;
-    border: 1px solid #a137639d;
 }
 
 .listItems__item--imgInfo span {

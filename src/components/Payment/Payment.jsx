@@ -10,7 +10,7 @@ import { collection, addDoc } from 'firebase/firestore';
 
 
 const Payment = () => {
-    const {carrito,total} = useContext(CartContext);
+    const { carrito, total, eliminarTodo} = useContext(CartContext);
     let date = new Date();
     let dateArgentina = date.toLocaleDateString('es-ES');
     let horaArgentina = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
@@ -19,6 +19,7 @@ const Payment = () => {
         userTelephone:'',
         userEmail:'',
     });
+    const [orderId, setOrderId] = useState();
 
 
     const getData =(e) =>{
@@ -35,14 +36,18 @@ const Payment = () => {
         order.date = `el día ${dateArgentina} a las ${horaArgentina}`
         console.log("pedido final final: ", order);
         pushOrder(order)
+        // eliminarTodo()
     }
 
     const pushOrder = async (orderSent) =>{
         const orderFirebase = collection(db, 'orders');
         const order = await addDoc(orderFirebase, orderSent);
+        setOrderId(order.id)
     };
 
-
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+    }
     
     return(
         <>
@@ -50,7 +55,7 @@ const Payment = () => {
         <div className='Payment'>
             <div className='formContainer'>
                 <h2>Información de contacto</h2>
-                <form action="" className='payment-form'>
+                <form action="" className='payment-form' onSubmit={handleSubmit}>
                     <label htmlFor="userName">Nombre y Apellido:</label>
                     <input type="text" name="userName" onChange={getData}/>
                     <label htmlFor="userTelephone">Teléfono:</label>
