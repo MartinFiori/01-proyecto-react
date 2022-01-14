@@ -69,7 +69,7 @@ const Cart = () => {
                             <p>Subtotal:<span className='procesoPagoContainer--total'> {total}&nbsp;$</span></p>
                             <Link to='/payment-process'>
                                 <button className='procesoPago'>
-                                    <CartIcon width={24} height={24} fill={"var(--primary-color)"} stroke={"#fff"}/>
+                                    <CartIcon width={20} height={20} fill={"var(--primary-color)"} stroke={"#fff"}/>
                                     <span>Proceso de Pago</span>
                                 </button>
                             </Link>
