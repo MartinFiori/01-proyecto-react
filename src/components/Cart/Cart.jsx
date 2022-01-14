@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Cart.css'
 import CartIcon from '../svg/CartIcon'
 import BackToMenu from '../BackToMenu/BackToMenu';
+import EmptyCart from '../EmptyCart/EmptyCart.jsx'
 
 const Cart = () => {
     const { carrito, deleteItem, handleDecrement, handleIncrement, total } = useContext(CartContext);
@@ -53,15 +54,7 @@ const Cart = () => {
                             )
                         })
                         :
-                        <div className="emptyCart">
-                            <img src={require('../../assets/cart/empty-cart.png')} alt="" />
-                            <h3>Su carrito está vacío</h3>
-                            <Link to="/">
-                                <button>
-                                    Seguir comprando
-                                </button>
-                            </Link>
-                        </div>
+                        <EmptyCart/>
                     }
                 {
                     carrito.length !== 0 && 

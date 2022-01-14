@@ -1,0 +1,30 @@
+.emptyCart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptyCart h3 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.emptyCart img {
+    margin-right: 21px;
+    filter: drop-shadow(0 .3rem 1px rgba(0, 0, 0, 0.3));
+}
+
+.emptyCart button {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 1.4rem;
+    border-radius: 10px;
+    background: var(--primary-color);
+    border: none;
+    display: block;
+    margin-top: 2rem;
+}
