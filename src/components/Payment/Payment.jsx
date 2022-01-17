@@ -60,8 +60,8 @@ const Payment = () => {
     const pushOrder = async (orderSent) =>{
         const orderFirebase = collection(db, 'orders');
         const order = await addDoc(orderFirebase, orderSent);
-        setOrderId(order.id)
         console.log(orderId)
+        setOrderId(order.id)
     };
 
 

@@ -7,9 +7,9 @@
     z-index: 1000;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
     padding-inline: 30px;
+    margin-bottom: 30px;
 }
 
 .menu-btn {
@@ -176,25 +176,3 @@
     margin-left: auto;
 }
 
-.userContainer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 7px;
-    cursor: pointer;
-}
-
-.userName {
-    font-size: 1.8rem;
-    right: 110%;
-    position: absolute;
-    font-weight: bold;
-    text-transform: capitalize;
-    color: var(--text-color);
-}
-
-.userName:hover{
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-}

@@ -4,7 +4,6 @@ import './NavBar.css';
 // Components
 import Logo from '../../assets/icon/brillando.png';
 import CartWidget from '../CartWidget/CartWidget.jsx'
-import UserIcon from '../svg/UserIcon';
 // Router Dom
 import { Link } from 'react-router-dom'
 
@@ -27,10 +26,6 @@ const NavBar = () => {
                 <img src={Logo}  alt="logo Brillandocon" className="header__img" onClick={()=>setMenuIsOpen([false,false])}/>
             </Link>
             <div className='iconContainer'>
-                <div className="userContainer">
-                    <p className="userName">Martín</p>
-                    <UserIcon fill={"var(--primary-color)"} width={45}/>
-                </div>
                 <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
             </div>
         </header>

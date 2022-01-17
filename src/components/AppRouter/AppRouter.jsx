@@ -15,13 +15,11 @@ import TicketPage from '../../pages/TicketPage/TicketPage';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
-import { UserProvider } from '../../context/UserContext/UserContext';
 
 const AppRouter = () => {
     return(
         <BrowserRouter>
             <CartProvider>
-            <UserProvider>
                 <NavBar/>
                     <Routes>
                         <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
@@ -33,7 +31,6 @@ const AppRouter = () => {
                         <Route path='/' element ={<ItemListContainer/>}/>
                         <Route path='*' element ={<Error404Page/>}/>
                     </Routes>
-            </UserProvider>
             </CartProvider>
         </BrowserRouter>
     )
