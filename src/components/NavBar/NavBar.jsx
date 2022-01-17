@@ -1,8 +1,11 @@
 // Imports
 import React, { useState } from 'react';
 import './NavBar.css';
+// Components
 import Logo from '../../assets/icon/brillando.png';
 import CartWidget from '../CartWidget/CartWidget.jsx'
+import UserIcon from '../svg/UserIcon';
+// Router Dom
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
@@ -23,8 +26,53 @@ const NavBar = () => {
             <Link to='/'>
                 <img src={Logo}  alt="logo Brillandocon" className="header__img" onClick={()=>setMenuIsOpen([false,false])}/>
             </Link>
-            <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
+            <div className='iconContainer'>
+                <div className="userContainer">
+                    <p className="userName">Martín</p>
+                    <UserIcon fill={"var(--primary-color)"} width={45}/>
+                </div>
+                <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
+            </div>
         </header>
+        <section className="filterContainer">
+            <ul>
+                <li>
+                    <Link to={"/"}>
+                        Todos
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/aritos"}>
+                        Aritos
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/articulados"}>
+                        Articulados
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/figuras"}>
+                        Figuras
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/jardineria"}>
+                        Jardinería
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/llaveros"}>
+                        Llaveros
+                    </Link>
+                </li>
+                <li>
+                    <Link to={"/organizadores"}>
+                        Organizadores
+                    </Link>
+                </li>
+            </ul>
+        </section>
         {/* ========== Inicio Nav Desplegable ========== */}
         <nav className={`nav ${menuIsOpen[0] ? "displayMenu" : ""}`} id="nav">
             <div className="navOverlay"></div>

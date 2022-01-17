@@ -3,7 +3,7 @@ import './CartWidget.css'
 import { Link } from 'react-router-dom';
 
 // Components
-import ShoppingBag from '../svg/ShoppingBag'
+import CartIcon from '../svg/CartIcon'
 
 // Context
 import { CartContext } from '../../context/CartContext/CartContext';
@@ -23,7 +23,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
     return(
             <div>
                 <div className="cartContainer--icon"onClick={displayCartWidget}>
-                    <ShoppingBag width={30} fill={"var(--primary-color)"} className="cart"/>
+                    <CartIcon width={40} fillOpacity={0} stroke={"var(--text-color)"} className="cart"/>
                     <p>{cartLength}</p>
                 </div>
                 <section className='cartContainer' id='cartContainer'>
@@ -65,7 +65,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                         <p className='finalizarCompra--total'>Subtotal:</p>
                                         <span className='finalizarCompra--number'>{`$${totalPrice}`}</span>
                                     </div>
-                                    <Link to="cart">
+                                    <Link to="/cart">
                                         <button className='finalizarCompra--btn' onClick={()=>handleCloseCartWidget()}>
                                             Realizar compra
                                         </button>
