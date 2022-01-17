@@ -43,7 +43,7 @@ const ItemListContainer = () =>{
                     setLoading(false)
                 }
         })
-    }, [category]);
+    }, []);
 
     return(
         <>

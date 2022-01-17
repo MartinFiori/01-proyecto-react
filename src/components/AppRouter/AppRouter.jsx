@@ -15,23 +15,25 @@ import TicketPage from '../../pages/TicketPage/TicketPage';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
+import { UserProvider } from '../../context/UserContext/UserContext';
 
 const AppRouter = () => {
     return(
         <BrowserRouter>
             <CartProvider>
-                    <NavBar/>
-                        <Routes>
-                            <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
-                            <Route path='/:category' element ={<ItemListContainer/>}/>
-                            <Route path='/cart' element ={<CartPage/>}/>
-                            <Route path='/about-us' element ={<AboutUs/>}/>
-                            <Route path='/contact-us' element ={<Contact/>}/>
-                            <Route path='/ticket-page' element ={<TicketPage/>}/>
-                            <Route path='/payment-process' element={<PaymentContainer/>}/>
-                            <Route path='/' element ={<ItemListContainer/>}/>
-                            <Route path='*' element ={<Error404Page/>}/>
-                        </Routes>
+            <UserProvider>
+                <NavBar/>
+                    <Routes>
+                        <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
+                        <Route path='/cart' element ={<CartPage/>}/>
+                        <Route path='/about-us' element ={<AboutUs/>}/>
+                        <Route path='/contact-us' element ={<Contact/>}/>
+                        <Route path='/ticket-page' element ={<TicketPage/>}/>
+                        <Route path='/payment-process' element={<PaymentContainer/>}/>
+                        <Route path='/' element ={<ItemListContainer/>}/>
+                        <Route path='*' element ={<Error404Page/>}/>
+                    </Routes>
+            </UserProvider>
             </CartProvider>
         </BrowserRouter>
     )

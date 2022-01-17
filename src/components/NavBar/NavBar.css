@@ -181,6 +181,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 7px;
+    cursor: pointer;
 }
 
 .userName {
@@ -192,26 +194,7 @@
     color: var(--text-color);
 }
 
-
-.filterContainer{
-    margin-bottom: 35px;
-    background: var(--white);
-    height: 40px;
-    border-top: 1px solid #093b4159;
-    border-bottom: 1px solid #093b4159;
-}
-
-.filterContainer ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100%;
-    max-width: 800px;
-    margin-inline: auto;
-}
-.filterContainer ul a{
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 1.8rem;
+.userName:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }

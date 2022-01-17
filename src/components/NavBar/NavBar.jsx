@@ -34,45 +34,6 @@ const NavBar = () => {
                 <CartWidget setMenuIsOpen={setMenuIsOpen} value={menuIsOpen}/>
             </div>
         </header>
-        <section className="filterContainer">
-            <ul>
-                <li>
-                    <Link to={"/"}>
-                        Todos
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/aritos"}>
-                        Aritos
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/articulados"}>
-                        Articulados
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/figuras"}>
-                        Figuras
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/jardineria"}>
-                        Jardinería
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/llaveros"}>
-                        Llaveros
-                    </Link>
-                </li>
-                <li>
-                    <Link to={"/organizadores"}>
-                        Organizadores
-                    </Link>
-                </li>
-            </ul>
-        </section>
         {/* ========== Inicio Nav Desplegable ========== */}
         <nav className={`nav ${menuIsOpen[0] ? "displayMenu" : ""}`} id="nav">
             <div className="navOverlay"></div>
