@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 
 const ItemDetail = ({item}) => {
-    const { addProducts, } = useContext(CartContext)
+    const { addProducts } = useContext(CartContext)
     const { id, img, stock, price, name } = item
-    const [itemCart, setItemCart] = useState(
+    const [itemCart] = useState(
         {
             id: id,
             img: img,
@@ -39,19 +39,6 @@ const ItemDetail = ({item}) => {
                     <p className="detail__header--price">{`$${price}`}</p>
                 </div>
                 <p className="detail__description"><i className="far fa-money-bill-alt detail__bill"></i> <span className="detail__discount"> 10%</span> de descuento pagando por transferencia bancaria</p>
-                <form className="detailForm">
-                    <div>
-                        <label htmlFor="color" className='detailForm--label'>Color:</label>
-                        <select name="color" id="option" className='detailForm--select'>
-                            <option defaultValue={""} className='detailForm--option' readOnly>Elija el color</option>
-                            <option value={"rosa"} className='detailForm--option'>Rosa</option>
-                            <option value={"negro"} className='detailForm--option'>Negro</option>
-                            <option value={"azul"} className='detailForm--option'>Azul</option>
-                            <option value={"rojo"} className='detailForm--option'>Rojo</option>
-                            <option value={"verde"} className='detailForm--option'>Verde</option>
-                        </select>
-                    </div>
-                </form>
                 <ItemCount onAdd={onAdd} stock={stock} addToCart={addToCart}/>
             </section>
         </div>

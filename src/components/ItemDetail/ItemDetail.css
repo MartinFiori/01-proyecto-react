@@ -63,32 +63,3 @@
 .detail__bill{
     font-size: 2rem;
 }
-
-.detailForm--label,
-.detailForm--select,
-.detailForm--option{
-    font-size: 1.8rem;
-    outline: none;
-}
-
-.detailForm--select,
-.detailForm--option{
-    padding: .3rem;
-
-}
-
-.detailForm--select,
-.detail__header--title,
-.detailForm--option{
-    text-transform: capitalize;
-}
-
-.detailForm--label{
-    margin-right: 1rem;
-}
-
-
-.detailForm--button:hover{
-    color: #fff;
-    background: var(--text-color);
-}

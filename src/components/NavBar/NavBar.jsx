@@ -39,11 +39,6 @@ const NavBar = () => {
                             Inicio
                         </li>
                     </Link>
-                    <Link to='/category'>
-                        <li onClick={displayMenu} className="nav__list--item">
-                            Categorias
-                        </li>
-                    </Link>
                     <Link to='/about-us'>
                         <li onClick={displayMenu} className="nav__list--item">
                             Sobre Nosotros
