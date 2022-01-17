@@ -4,9 +4,6 @@ import './Payment.css';
 import {CartContext} from '../../context/CartContext/CartContext.jsx';
 import BackToMenu from '../BackToMenu/BackToMenu';
 
-// React router DOM
-import { Link } from 'react-router-dom';
-
 // Firebase
 import db from '../../Firebase';
 import { collection, addDoc } from 'firebase/firestore';
@@ -19,10 +16,11 @@ const Payment = () => {
     let horaArgentina = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
     const [userInfo, setUserInfo] = useState({
         userName: '',
-        userTelephone:'',
+        userCellphone:'',
         userEmail:'',
     });
     const [orderId, setOrderId] = useState(null);
+    const [error,setError] = useState(false)
 
 
     const getData =(e) =>{
@@ -39,7 +37,24 @@ const Payment = () => {
         order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
         console.log("pedido final final: ", order);
         pushOrder(order);
-        // eliminarTodo();
+        eliminarTodo();
+    }
+
+    const handleValidation = (e)=>{
+        e.preventDefault()
+        const { userName, userCellphone, userEmail } = userInfo
+        const validEmail = new RegExp(
+            '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
+        );
+        if (userName.length === 0 || userCellphone.length <= 7 || userCellphone.length > 11 || !validEmail.test(userEmail)) {
+            setError(true)
+            console.log(error)
+            console.log("algo mal escrito")
+        } else{
+            setError(false)
+            console.log(error)
+            console.log("todo funciona")
+        }
     }
 
     const pushOrder = async (orderSent) =>{
@@ -59,12 +74,12 @@ const Payment = () => {
                 <h2>Información de contacto</h2>
                 <form action="" className='payment-form'>
                     <label htmlFor="userName">Nombre y Apellido:</label>
-                    <input type="text" name="userName" onChange={getData}/>
-                    <label htmlFor="userTelephone">Teléfono:</label>
-                    <input type="number" name="userTelephone" onChange={getData}/>
+                    <input type="text" name="userName" required onChange={getData}/>
+                    <label htmlFor="userCellphone">Teléfono:</label>
+                    <input type="number" name="userCellphone" required onChange={getData}/>
                     <label htmlFor="userEmail">Correo electrónico:</label>
-                    <input type="email" name="userEmail" onChange={getData}/>
-                        <input type="submit" value="Confirmar pedido" onClick={(e)=>sendOrder(e)}/>
+                    <input type="email" name="userEmail" required onChange={getData}/>
+                    <input type="submit" value="Confirmar pedido" onClick={(e)=>sendOrder(e)}/>
                 </form>
             </div>
             <div className='listItems-container'>

@@ -1,6 +1,10 @@
 import React, {useContext, useEffect} from 'react'
 import './CartWidget.css'
 import { Link } from 'react-router-dom';
+
+// Components
+import ShoppingBag from '../svg/ShoppingBag'
+
 // Context
 import { CartContext } from '../../context/CartContext/CartContext';
 
@@ -19,7 +23,7 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
     return(
             <div>
                 <div className="cartContainer--icon"onClick={displayCartWidget}>
-                    <i className="fas fa-shopping-cart cart" ></i>
+                    <ShoppingBag width={30} fill={"var(--primary-color)"} className="cart"/>
                     <p>{cartLength}</p>
                 </div>
                 <section className='cartContainer' id='cartContainer'>
