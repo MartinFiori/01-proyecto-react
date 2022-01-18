@@ -14,6 +14,7 @@ const Payment = () => {
     let date = new Date();
     let dateArgentina = date.toLocaleDateString('es-ES');
     let horaArgentina = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+    // el hook que uso para los errores lo hice un objeto para poder practicar un poco
     const [error, setError] = useState({
         userNameError: false,
         userCellphoneError: false,
@@ -24,6 +25,7 @@ const Payment = () => {
         userCellphone:'',
         userEmail:'',
     });
+    // destructuring
     const { userNameError, userCellphoneError, userEmailError } = error;
     const { userName, userCellphone, userEmail } = userInfo;
     const [orderId, setOrderId] = useState(null);
@@ -53,6 +55,9 @@ const Payment = () => {
         console.log(orderId)
     };
 
+    //  Acá empieza la primera vez que intenté. El handleNameValidation me funcionaba estando solo, una vez que agregué handleCellphoneValidation
+    // empezó el problema
+
     const handleNameValidation = ()=>{
         if(userName.length === 0){
             setError({...error, userNameError: true})
@@ -70,12 +75,18 @@ const Payment = () => {
             setError({...error, userCellphoneError: false})
         }
     }
+// en primera instancia tenía todo dentro de 1 función pero estuve desmenuzando el problema para ver como solucionarlo (SPOILER ALERT!!: no lo soluciono)
+    const handleValidation = ()=>{
+        handleNameValidation();
+        handleCellphoneValidation();
+    }
 
-    // const handleValidation = ()=>{
-    //     handleNameValidation();
-    //     handleCellphoneValidation();
-    // }
+    // Acá termina el primer intento
 
+
+
+
+    // Y esto es harcodear todo para ver si yo estaba haciendo algo mal. De momento todo funciona, solo tengo que buscar algun regex para el email
 
     const [uno, setUno] = useState(false);
     const [dos, setDos] = useState(false);
@@ -99,6 +110,8 @@ const Payment = () => {
 
         userEmail.length === 0 ? setTres(true) : setTres(false)
     }
+
+    // fin del hardcodeo
 
     
     return(
