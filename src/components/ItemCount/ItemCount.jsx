@@ -1,5 +1,10 @@
 import './ItemCount.css'
 import React, { useState } from 'react';
+
+// Components
+import CartIcon from '../svg/CartIcon'
+
+// Router DOM
 import { Link } from 'react-router-dom';
 
 
@@ -53,7 +58,7 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
                     </Link>
                     <Link to="/cart">
                         <button className='contador__finalizarCompra'>
-                            <i className="fas fa-shopping-bag productoComprado__icon"></i> Finalizar Compra
+                            <CartIcon width={24} fill={"var(--text-color)"}/> Finalizar Compra
                         </button>
                     </Link>
                 </div>

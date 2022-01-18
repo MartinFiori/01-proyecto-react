@@ -14,13 +14,19 @@ const Payment = () => {
     let date = new Date();
     let dateArgentina = date.toLocaleDateString('es-ES');
     let horaArgentina = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+    const [error, setError] = useState({
+        userNameError: false,
+        userCellphoneError: false,
+        userEmailError: false
+    });
     const [userInfo, setUserInfo] = useState({
         userName: '',
         userCellphone:'',
         userEmail:'',
     });
+    const { userNameError, userCellphoneError, userEmailError } = error;
+    const { userName, userCellphone, userEmail } = userInfo;
     const [orderId, setOrderId] = useState(null);
-    const [error,setError] = useState(false)
 
 
     const getData =(e) =>{
@@ -40,30 +46,35 @@ const Payment = () => {
         eliminarTodo();
     }
 
-    const handleValidation = (e)=>{
-        e.preventDefault()
-        const { userName, userCellphone, userEmail } = userInfo
-        const validEmail = new RegExp(
-            '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
-        );
-        if (userName.length === 0 || userCellphone.length <= 7 || userCellphone.length > 11 || !validEmail.test(userEmail)) {
-            setError(true)
-            console.log(error)
-            console.log("algo mal escrito")
-        } else{
-            setError(false)
-            console.log(error)
-            console.log("todo funciona")
-        }
-    }
-
     const pushOrder = async (orderSent) =>{
         const orderFirebase = collection(db, 'orders');
         const order = await addDoc(orderFirebase, orderSent);
-        console.log(orderId)
         setOrderId(order.id)
+        console.log(orderId)
     };
 
+    const handleNameValidation = ()=>{
+        if(userName.length === 0){
+            setError({...error, userNameError: true})
+        } 
+        if(userName.length !== 0){
+            setError({...error, userNameError: false})
+        }
+    }
+
+    const handleCellphoneValidation = ()=>{
+        if(userCellphone.length <= 7 || userCellphone.length > 11){
+            setError({...error, userCellphoneError: true})
+        }
+        if(userCellphone.length >= 8 || userCellphone.length <= 11){
+            setError({...error, userCellphoneError: false})
+        }
+    }
+
+    const handleValidation = ()=>{
+        handleNameValidation();
+        handleCellphoneValidation();
+    }
 
     
     return(
@@ -75,11 +86,13 @@ const Payment = () => {
                 <form action="" className='payment-form'>
                     <label htmlFor="userName">Nombre y Apellido:</label>
                     <input type="text" name="userName" required onChange={getData}/>
+                    {userNameError && <span>Complete el campo correctamente</span>}
                     <label htmlFor="userCellphone">Teléfono:</label>
                     <input type="number" name="userCellphone" required onChange={getData}/>
+                    {userCellphoneError && <span>Complete el campo correctamente</span>}
                     <label htmlFor="userEmail">Correo electrónico:</label>
                     <input type="email" name="userEmail" required onChange={getData}/>
-                    <input type="submit" value="Confirmar pedido" onClick={(e)=>sendOrder(e)}/>
+                    <input type="submit" value="Confirmar pedido" onClick={(e)=>{sendOrder(e);handleValidation()}}/>
                 </form>
             </div>
             <div className='listItems-container'>
