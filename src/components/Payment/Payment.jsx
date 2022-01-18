@@ -71,9 +71,33 @@ const Payment = () => {
         }
     }
 
-    const handleValidation = ()=>{
-        handleNameValidation();
-        handleCellphoneValidation();
+    // const handleValidation = ()=>{
+    //     handleNameValidation();
+    //     handleCellphoneValidation();
+    // }
+
+
+    const [uno, setUno] = useState(false);
+    const [dos, setDos] = useState(false);
+    const [tres, setTres] = useState(false);
+    
+
+    const problemas = ()=>{
+        if(userName.length === 0){
+            setUno(true)
+        }
+        if(userName.length !== 0){
+            setUno(false)
+        }
+
+
+        if(userCellphone.length < 8 || userCellphone.length > 11){
+            setDos(true)
+        } else{
+            setDos(false)
+        }
+
+        userEmail.length === 0 ? setTres(true) : setTres(false)
     }
 
     
@@ -86,13 +110,14 @@ const Payment = () => {
                 <form action="" className='payment-form'>
                     <label htmlFor="userName">Nombre y Apellido:</label>
                     <input type="text" name="userName" required onChange={getData}/>
-                    {userNameError && <span>Complete el campo correctamente</span>}
+                    {uno === true && <span>Complete el campo correctamente</span>}
                     <label htmlFor="userCellphone">Teléfono:</label>
                     <input type="number" name="userCellphone" required onChange={getData}/>
-                    {userCellphoneError && <span>Complete el campo correctamente</span>}
+                    {dos === true && <span>Complete el campo correctamente</span>}
                     <label htmlFor="userEmail">Correo electrónico:</label>
                     <input type="email" name="userEmail" required onChange={getData}/>
-                    <input type="submit" value="Confirmar pedido" onClick={(e)=>{sendOrder(e);handleValidation()}}/>
+                    {tres === true && <span>Complete el campo correctamente</span>}
+                    <input type="submit" value="Confirmar pedido" onClick={(e)=>{sendOrder(e);problemas()}}/>
                 </form>
             </div>
             <div className='listItems-container'>
