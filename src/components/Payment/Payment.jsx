@@ -15,17 +15,12 @@ import { useForm } from "react-hook-form";
 
 const Payment = () => {
   const { carrito, total, eliminarTodo } = useContext(CartContext);
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => {setUserInfo(data);console.log(data)};
   let date = new Date();
   let dateArgentina = date.toLocaleDateString("es-ES");
-  let horaArgentina =
-    date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-  const [userInfo, setUserInfo] = useState({
-    userName: "",
-    userCellphone: "",
-    userEmail: "",
-  });
+  let horaArgentina = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+  const [userInfo, setUserInfo] = useState();
   const [orderId, setOrderId] = useState(null);
 
   const getData = (e) => {
@@ -39,7 +34,7 @@ const Payment = () => {
     order.cart = carrito;
     order.total = (90 * total) / 100;
     order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
-    console.log("pedido final final: ", order);
+      console.log("pedido final final: ", order);
     // pushOrder(order);
     // eliminarTodo();
   };
@@ -51,23 +46,33 @@ const Payment = () => {
     console.log(orderId);
   };
 
-
   return (
     <>
       <BackToMenu place={"/cart"} />
       <div className="Payment">
         <div className="formContainer">
           <h2>Información de contacto</h2>
-          <form action="" className="payment-form" onSubmit={handleSubmit((data)=>{
-            console.log(data)
-          })}>
-            <label htmlFor="userName">Nombre y Apellido:</label>
-            <input type="text" name="userName" required onChange={getData}/>
+          <form action="" className="payment-form" onSubmit={handleSubmit(data=>setUserInfo(data))}>
+            {/* <label htmlFor="userName">Nombre y Apellido:</label>
+            <input type="text" {...register("userName", {required:true})} onChange={getData}/>
+            <p>{errors.userName && "Esto esta mal"}</p>
             <label htmlFor="userCellphone">Teléfono:</label>
-            <input type="number" name="userCellphone" required onChange={getData}/>
+            <input type="number" {...register("userCellphone", {required:true})} onChange={getData}/>
             <label htmlFor="userEmail">Correo electrónico:</label>
-            <input type="email" name="userEmail" required onChange={getData}/>
-            <input type="submit" value="Confirmar pedido" onClick={(e) => {sendOrder(e)}}/>
+            <input type="email" {...register("userEmail", {required:true})} onChange={getData}/>*/}
+            {/* <label htmlFor="nombreUsuario">Nombre usuario:</label>
+            <input type="text" {...register("nombreUsuario", {required:'prueba'})} className={errors.nombreUsuario && "nofunca"}/>
+            <p>{errors.nombreUsuario?.message}</p> */}
+            <label htmlFor="userName">Nombre</label>
+            <p>{errors.userName?.message}</p>
+            <input type="text" {...register('userName',{required:'Por favor, ingrese un nombre/apellido válido'})}/>
+            <label htmlFor="userNumber">Teléfono</label>
+            <p>{errors.userNumber?.message}</p>
+            <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número válido'})}/>
+            <label htmlFor="userEmail">Email</label>
+            <p>{errors.userEmail?.message}</p>
+            <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico válido'})}/>
+            <input type="submit" value="Confirmar pedido" onClick={(e) => sendOrder(e)}/> 
           </form>
         </div>
         <div className="listItems-container">
