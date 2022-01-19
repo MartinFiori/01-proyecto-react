@@ -34,8 +34,10 @@ const Payment = () => {
     order.cart = carrito;
     order.total = (90 * total) / 100;
     order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
-      console.log("pedido final final: ", order);
-    // pushOrder(order);
+    console.log("pedido final final: ", order);
+    if(order.buyer != undefined){
+      pushOrder(order);
+    }
     // eliminarTodo();
   };
 
