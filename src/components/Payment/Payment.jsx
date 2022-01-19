@@ -1,5 +1,5 @@
 // Components
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './Payment.css';
 import {CartContext} from '../../context/CartContext/CartContext.jsx';
 import BackToMenu from '../BackToMenu/BackToMenu';
@@ -25,8 +25,7 @@ const Payment = () => {
         userCellphone:'',
         userEmail:'',
     });
-    // destructuring
-    const { userNameError, userCellphoneError, userEmailError } = error;
+    const inputNameError = [""]
     const { userName, userCellphone, userEmail } = userInfo;
     const [orderId, setOrderId] = useState(null);
 
@@ -44,8 +43,8 @@ const Payment = () => {
         order.total = (90*total)/100;
         order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
         console.log("pedido final final: ", order);
-        pushOrder(order);
-        eliminarTodo();
+        // pushOrder(order);
+        // eliminarTodo();
     }
 
     const pushOrder = async (orderSent) =>{
@@ -58,31 +57,18 @@ const Payment = () => {
     //  Acá empieza la primera vez que intenté. El handleNameValidation me funcionaba estando solo, una vez que agregué handleCellphoneValidation
     // empezó el problema
 
-    const handleNameValidation = ()=>{
-        if(userName.length === 0){
-            setError({...error, userNameError: true})
-        } 
-        if(userName.length !== 0){
-            setError({...error, userNameError: false})
-        }
-    }
 
-    const handleCellphoneValidation = ()=>{
-        if(userCellphone.length <= 7 || userCellphone.length > 11){
-            setError({...error, userCellphoneError: true})
-        }
-        if(userCellphone.length >= 8 || userCellphone.length <= 11){
-            setError({...error, userCellphoneError: false})
-        }
-    }
-// en primera instancia tenía todo dentro de 1 función pero estuve desmenuzando el problema para ver como solucionarlo (SPOILER ALERT!!: no lo soluciono)
+    // en primera instancia tenía todo dentro de 1 función pero estuve desmenuzando el problema para ver como solucionarlo (SPOILER ALERT!!: no lo soluciono)
     const handleValidation = ()=>{
-        handleNameValidation();
-        handleCellphoneValidation();
+        const { userNameError, userCellphoneError, userEmailError } = error
+        userName.length === 0 ? setError({...error, userNameError:true}) : setError({...error, userNameError:false})
+        (userCellphone.length <= 7 || userCellphone.length > 11) ? setError({...error, userCellphoneError: true}) : setError({...error, userCellphoneError: false})
+        // console.log("el valor de usernameerrores: ",userNameError)
+        // console.log("el valor de usercellphoneerror: ",userCellphoneError)
+        console.log(error)
     }
 
     // Acá termina el primer intento
-
 
 
 
@@ -113,6 +99,7 @@ const Payment = () => {
 
     // fin del hardcodeo
 
+
     
     return(
         <>
@@ -123,14 +110,14 @@ const Payment = () => {
                 <form action="" className='payment-form'>
                     <label htmlFor="userName">Nombre y Apellido:</label>
                     <input type="text" name="userName" required onChange={getData}/>
-                    {uno === true && <span>Complete el campo correctamente</span>}
+                    {error.userNameError ? <span>Complete el campo correctamente</span> : null}
                     <label htmlFor="userCellphone">Teléfono:</label>
                     <input type="number" name="userCellphone" required onChange={getData}/>
-                    {dos === true && <span>Complete el campo correctamente</span>}
+                    {error.userCellphoneError ? <span>Complete el campo correctamente</span> : null}
                     <label htmlFor="userEmail">Correo electrónico:</label>
                     <input type="email" name="userEmail" required onChange={getData}/>
                     {tres === true && <span>Complete el campo correctamente</span>}
-                    <input type="submit" value="Confirmar pedido" onClick={(e)=>{sendOrder(e);problemas()}}/>
+                    <input type="submit" value="Confirmar pedido" onClick={(e)=>{sendOrder(e);handleValidation()}}/>
                 </form>
             </div>
             <div className='listItems-container'>
