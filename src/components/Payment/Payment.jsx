@@ -28,24 +28,22 @@ const Payment = () => {
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const sendOrder = () => {
+  const sendOrder = (dataFromForm) => {
     let order = {};
-    order.buyer = userInfo;
+    order.buyer = dataFromForm;
     order.cart = carrito;
     order.total = (90 * total) / 100;
     order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
     console.log("pedido final final: ", order);
-    if(order.buyer != undefined){
-      pushOrder(order);
-    }
+    pushOrder(order);
     // eliminarTodo();
   };
 
   const pushOrder = async (orderSent) => {
     const orderFirebase = collection(db, "orders");
     const order = await addDoc(orderFirebase, orderSent);
+    console.log(order.id);
     setOrderId(order.id);
-    console.log(orderId);
   };
 
   return (
@@ -54,17 +52,7 @@ const Payment = () => {
       <div className="Payment">
         <div className="formContainer">
           <h2>Información de contacto</h2>
-          <form action="" className="payment-form" onSubmit={handleSubmit(data=>setUserInfo(data))}>
-            {/* <label htmlFor="userName">Nombre y Apellido:</label>
-            <input type="text" {...register("userName", {required:true})} onChange={getData}/>
-            <p>{errors.userName && "Esto esta mal"}</p>
-            <label htmlFor="userCellphone">Teléfono:</label>
-            <input type="number" {...register("userCellphone", {required:true})} onChange={getData}/>
-            <label htmlFor="userEmail">Correo electrónico:</label>
-            <input type="email" {...register("userEmail", {required:true})} onChange={getData}/>*/}
-            {/* <label htmlFor="nombreUsuario">Nombre usuario:</label>
-            <input type="text" {...register("nombreUsuario", {required:'prueba'})} className={errors.nombreUsuario && "nofunca"}/>
-            <p>{errors.nombreUsuario?.message}</p> */}
+          <form action="" className="payment-form" onSubmit={handleSubmit(dataFromForm=>sendOrder(dataFromForm))}>
             <label htmlFor="userName">Nombre</label>
             <p>{errors.userName?.message}</p>
             <input type="text" {...register('userName',{required:'Por favor, ingrese un nombre/apellido válido'})}/>
@@ -74,7 +62,7 @@ const Payment = () => {
             <label htmlFor="userEmail">Email</label>
             <p>{errors.userEmail?.message}</p>
             <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico válido'})}/>
-            <input type="submit" value="Confirmar pedido" onClick={(e) => sendOrder(e)}/> 
+            <input type="submit" value="Confirmar pedido" /> 
           </form>
         </div>
         <div className="listItems-container">
