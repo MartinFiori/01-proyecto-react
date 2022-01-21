@@ -74,7 +74,7 @@ input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 325px;
+    width: 330px;
     margin-bottom: 1.8rem;
 }
 
@@ -161,4 +161,34 @@ input[type=number] {
 .errorMessage{
     color: red;
     font-size: 14px;
+}
+
+.listItems-displayer{
+    height: 50px;
+}
+
+.listItems-displayer h2{
+    height: 50px;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.listItems{
+    transition: all 500ms ease;
+}
+
+.listItems-displayer .listItems{
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    height: 0;
+}
+.listItems-displayer.active .listItems{
+    height: 100%;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.listItems-displayer.active{
+    height: 100%;
 }

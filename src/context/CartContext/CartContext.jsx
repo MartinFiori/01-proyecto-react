@@ -36,7 +36,6 @@ const CartProvider = ({children}) => {
             prod))
             :
             setCarrito(carrito=> [...carrito, item]);
-
         localStorage.setItem('cart', JSON.stringify(item))
     }
     
