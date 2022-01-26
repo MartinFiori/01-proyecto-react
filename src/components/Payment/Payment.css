@@ -171,22 +171,26 @@ input[type=number] {
     height: 50px;
     font-size: 1.6rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
+.listItems-displayer h2 svg{
+    margin-right: 10px;
+}
 .listItems{
     transition: all 500ms ease;
 }
 
 .listItems-displayer .listItems{
     transform-origin: top;
-    transform: scaleY(0);
     opacity: 0;
     height: 0;
 }
 .listItems-displayer.active .listItems{
     height: 100%;
     opacity: 1;
-    transform: scaleY(1);
 }
 
 .listItems-displayer.active{

@@ -4,6 +4,7 @@ import "./Payment.css";
 import { CartContext } from "../../context/CartContext/CartContext.jsx";
 import BackToMenu from "../BackToMenu/BackToMenu";
 import CartIcon from '../svg/CartIcon'
+import Ticket from "../Ticket/Ticket";
 
 // Firebase
 import db from "../../Firebase";
@@ -17,6 +18,7 @@ import { useForm } from "react-hook-form";
 const Payment = () => {
   const { carrito, total, eliminarTodo } = useContext(CartContext);
   const [displayer, setDisplayer] = useState(false);
+  const [ticketInfo, setTicketInfo] = useState({});
   const { register, handleSubmit, formState: { errors } } = useForm();
   let date = new Date();
   let dateArgentina = date.toLocaleDateString("es-ES");
@@ -29,8 +31,9 @@ const Payment = () => {
     order.buyer = dataFromForm;
     order.cart = carrito;
     order.total = (90 * total) / 100;
-    order.date = `el día ${dateArgentina} a las ${horaArgentina}`;
+    order.date = `${dateArgentina} a las ${horaArgentina}`;
     console.log("pedido final final: ", order);
+    setTicketInfo(order)
     pushOrder(order);
     eliminarTodo();
   };
@@ -41,9 +44,13 @@ const Payment = () => {
     setOrderId(order.id);
     console.log(order.id);
   };
-
   return (
     <>
+    {
+      carrito.length === 0 ?
+      <Ticket orderId={orderId} ticketInfo={ticketInfo}/>
+      :
+      <>
       <BackToMenu place={"/cart"} />
       <div className="Payment">
         <div className="formContainer">
@@ -54,7 +61,7 @@ const Payment = () => {
             <input type="text" {...register('userName',{required:'Por favor, ingrese su nombre', pattern:{value:/^[a-zA-Z-]+\s[a-zA-Z-]+$/i, message: "Por favor, ingrese su nombre completo"}})}/>
             <label htmlFor="userNumber">Teléfono <span>(sin espacios ni guiones):</span></label>
             <p className="errorMessage">{errors.userNumber?.message}</p>
-            <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/[1-9]{8,10}/,message:"Por favor, ingrese un número válido"}})}/>
+            <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/^[\d*]{8,10}$/,message:"Por favor, ingrese un número válido"}})}/>
             <label htmlFor="userEmail">Email:</label>
             <p className="errorMessage">{errors.userEmail?.message}</p>
             <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico', pattern:{value: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})}/>
@@ -95,6 +102,8 @@ const Payment = () => {
           </div>
         </div>
       </div>
+      </>
+    }
     </>
   );
 };
