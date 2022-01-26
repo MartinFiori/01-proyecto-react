@@ -1,25 +1,22 @@
 .card {
-    height: 382px;
+    height: 340px;
     width: 286px;
     background: var(--white);
     display: inline-flex;
     flex-direction: column;
-    position: relative;
-    justify-content: space-evenly;
-    color: var(--text-color);
     border-radius: 5px;
     overflow: hidden;
     transition: transform 250ms ease-in, box-shadow 250ms ease-in-out;
     margin-inline: auto;
 }
 
-.card:hover{
+.card:hover {
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.178);
     transform: scale(1.03);
 }
 
 .card__header {
-    padding: 15px;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,20 +27,23 @@
     font-size: 2rem;
     flex-basis: 75%;
     font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
 }
 
 .card__header--price {
     font-size: 1.8rem;
     text-align: center;
     font-weight: bold;
-    align-self: center;
-    justify-self: center;
-    line-height: 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     width: 70px;
-    background: var(--primary-color);
-    color: #fff;
-    border-radius: 50%;
+    background: #badfe3;
+    color: #053b41;
 }
 
 .card__img {
@@ -51,29 +51,20 @@
     height: 180px;
 }
 
-.card__description {
-    font-size: 1.6rem;
-    padding: 1.5rem;
-    position: relative;
-}
-
-
-
 .card__buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    height: 150px;
 }
 
-
-.card__buttons--icon{
+.card__buttons--icon {
     color: #7c7c7c;
     font-size: 2rem;
     transition: color 150ms ease-out;
 }
 
-.card__buttons--icon:hover{
+.card__buttons--icon:hover {
     opacity: .8;
     transform: scale(1.03);
 }
@@ -96,20 +87,60 @@
     cursor: pointer;
 }
 
-.card__buttons--heart{
-    color:#f00;
+.card__buttons--heart {
+    color: #f00;
     animation-name: favorite;
     animation-duration: 500ms;
     animation-iteration-count: 1;
 }
 
-.card__buttons--heart:hover{
-    color:#f00;
+.card__buttons--heart:hover {
+    color: #f00;
+    background-image: red;
     opacity: .5;
 }
 
-@keyframes favorite{
-    0%{}
-    50%{transform: scale(1.3);}
-    100%{transform: scale(1);}
+.card__buttons--container {
+    position: relative;
+}
+
+.copied {
+    opacity: 0;
+    transition: opacity 500ms ease;
+    position: absolute;
+    font-size: 1.6rem;
+    bottom: 175%;
+    left: -10px;
+    background: #badfe3;
+    border-radius: 5px;
+    padding: 0.5em;
+    color: #022d31;
+}
+
+.copied::before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    border: 6px;
+    border-style: solid;
+    border-color: #badfe3 transparent transparent;
+}
+
+.copied--active {
+    opacity: 1;
+}
+
+
+
+@keyframes favorite {
+    0% {}
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
