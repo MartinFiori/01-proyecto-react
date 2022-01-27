@@ -47,7 +47,7 @@ const Payment = () => {
   return (
     <>
     {
-      carrito.length === 0 ?
+      orderId ?
       <Ticket orderId={orderId} ticketInfo={ticketInfo}/>
       :
       <>
@@ -58,13 +58,13 @@ const Payment = () => {
           <form action="" className="payment-form" onSubmit={handleSubmit(dataFromForm=>sendOrder(dataFromForm))}>
             <label htmlFor="userName">Nombre completo:</label>
             <p className="errorMessage">{errors.userName?.message}</p>
-            <input type="text" {...register('userName',{required:'Por favor, ingrese su nombre', pattern:{value:/^[a-zA-Z-]+\s[a-zA-Z-]+$/i, message: "Por favor, ingrese su nombre completo"}})}/>
+            <input type="text" {...register('userName',{required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z]+\s[a-z]+$/i, message: "Por favor, ingrese su nombre completo"}})}/>
             <label htmlFor="userNumber">Teléfono <span>(sin espacios ni guiones):</span></label>
             <p className="errorMessage">{errors.userNumber?.message}</p>
             <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/^[\d*]{8,10}$/,message:"Por favor, ingrese un número válido"}})}/>
             <label htmlFor="userEmail">Email:</label>
             <p className="errorMessage">{errors.userEmail?.message}</p>
-            <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico', pattern:{value: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})}/>
+            <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico', pattern:{value: /[A-Z0-9._%+-]+@[A-Z.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})}/>
             <input type="submit" value="Confirmar pedido" /> 
           </form>
         </div>

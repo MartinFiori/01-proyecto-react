@@ -110,7 +110,7 @@
     color: #064349;
     font-weight: bold;
     display: inline-block;
-    line-height: 24px;
+    line-height: 27px;
 }
 
 .itemList__details--delete span {
@@ -120,7 +120,7 @@
     color: #111;
     font-size: 2.5rem;
     font-weight: bold;
-    line-height: 25px;
+    line-height: 28px;
     text-align: center;
     border-radius: 50%;
     cursor: pointer;

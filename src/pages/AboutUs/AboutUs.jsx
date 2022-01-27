@@ -30,7 +30,7 @@ const AboutUs = () => {
                     <h3 className="containerInfo__nosotros--pregunta">¿Como?</h3>
                     <p className="containerInfo__nosotros--respuesta">Mandanos los archivos (preferentemente: .skp .stl .3dm) via Whatsapp, o Mail (disponible en el pie de página) y contanos todos los detalles! Colores, tamaño, cantidad de artículos, etc</p>
                     <h3 className="containerInfo__nosotros--pregunta">¿Qué material utilizamos?</h3>
-                    <p className="containerInfo__nosotros--respuesta">Trabajamos con <span className="plasticoPla">Plástico PLA</span>, el cual consideramos un material respetuoso con el medio ambiente.</p>
+                    <p className="containerInfo__nosotros--respuesta">Trabajamos con <a href='https://www.3dnatives.com/es/guia-filamento-pla-en-la-impresion-3d-190820192/' className="plasticoPla brillandocon" target={"_blank"}>Plástico PLA</a>, el cual consideramos un material respetuoso con el medio ambiente.</p>
                 </div>
             </div>
         </div>

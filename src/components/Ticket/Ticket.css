@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--text-color);
 }
 
 .ticket {
@@ -32,13 +33,13 @@
 }
 
 .ticket p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     align-self: flex-start;
     margin-bottom: 1rem;
 }
 
 .ticket span{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 

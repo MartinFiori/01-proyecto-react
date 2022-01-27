@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 62.5%;
+  font-family: 'Nunito', sans-serif;
 }
 
 
@@ -29,9 +30,10 @@ html{
 /* Variables */
 :root{
   --white: #fff;
-  --text-color: #1da1b0;
+  --text-color: #004553;
   --primary-color: #A13764;
   --lightText-color:#0f545c;
+  --form-bg: #55bcc8b7;
 }
 
 
