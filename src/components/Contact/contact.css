@@ -81,3 +81,25 @@ input[type="submit"] {
     color: red;
     font-size: 14px;
 }
+
+
+/* MEDIA QUERY */
+@media only screen and (max-width:1240px){
+    .inputs-Container {
+        flex-direction: column;
+    }
+
+    input[type="submit"] {
+        width: 330px;
+        margin-inline: auto;
+        margin-top: 2rem;
+    }
+    .contact-form {
+        width: 600px;
+        padding: 30px;
+    }
+    .input{
+        width: 100% !important;
+    }
+}
+/* MEDIA QUERY */
