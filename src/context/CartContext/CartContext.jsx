@@ -53,6 +53,10 @@ const CartProvider = ({children}) => {
         )
     }
 
+    const eliminarTodo = () =>{
+        setCarrito([])
+    }
+
 
     const carritoData = {
         carrito,
@@ -62,6 +66,7 @@ const CartProvider = ({children}) => {
         setCarrito,
         addProducts,
         deleteItem,
+        eliminarTodo,
         handleIncrement,
         handleDecrement,
     }
