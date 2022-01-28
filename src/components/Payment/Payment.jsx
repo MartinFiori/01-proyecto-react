@@ -61,10 +61,10 @@ const Payment = () => {
             <input type="text" {...register('userName',{required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z]+\s[a-z]+$/i, message: "Por favor, ingrese su nombre completo"}})}/>
             <label htmlFor="userNumber">Teléfono <span>(sin espacios ni guiones):</span></label>
             <p className="errorMessage">{errors.userNumber?.message}</p>
-            <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/^[\d*]{8,10}$/,message:"Por favor, ingrese un número válido"}})}/>
+            <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/^[\d]{8,12}$/,message:"Por favor, ingrese un número válido"}})}/>
             <label htmlFor="userEmail">Email:</label>
             <p className="errorMessage">{errors.userEmail?.message}</p>
-            <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico', pattern:{value: /[A-Z0-9._%+-]+@[A-Z.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})}/>
+            <input type="email" {...register('userEmail',{required:'Por favor, ingrese un correo electrónico', pattern:{value: /^[A-Z0-9._%+-]+@[A-Z.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})}/>
             <input type="submit" value="Confirmar pedido" /> 
           </form>
         </div>
@@ -72,7 +72,7 @@ const Payment = () => {
           <div className={`listItems-displayer ${displayer ? "active" : ""}`} >
             <h2 onClick={()=>setDisplayer(!displayer)}>
               <CartIcon width={20} fillOpacity={0} stroke={"var(--text-color)"} className="cart"/>
-              Mostrar resumen del pedido
+              { !displayer ? "Mostrar" : "Ocultar"} resumen del pedido
             </h2>
             <ul className="listItems">
               {carrito.map((prod) => {

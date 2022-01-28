@@ -26,11 +26,11 @@
 .card__header--title {
     font-size: 2rem;
     flex-basis: 75%;
-    font-weight: 500;
+    font-weight: bold;
     color: var(--primary-color);
     display: flex;
     align-items: center;
-    padding-left: 5%;
+    padding-inline: 5%;
 }
 
 .card__header--price {

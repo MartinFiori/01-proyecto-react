@@ -1,9 +1,8 @@
 import React, {createContext, useState, useEffect} from 'react';
-import { createRoutesFromChildren } from 'react-router-dom';
 
 const CartContext = createContext();
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart' || "[]"))
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]' )
 
 
 const CartProvider = ({children}) => {
@@ -17,13 +16,9 @@ const CartProvider = ({children}) => {
         localStorage.setItem('cart',JSON.stringify(carrito))
     }, [carrito]);
 
-    const eliminarTodo = ()=>{
-        setCarrito([])
-    }
-
     const cartLengthReduce = carrito.reduce((acc, el)=> acc+ el.quantity, 0)
 
-    const total = carrito.reduce((acc, el)=> acc + (el.quantity * el.price),0)
+    const total =carrito.reduce((acc, el)=> acc + (el.quantity * el.price),0)
 
 
     const addProducts = (item) =>{
@@ -31,7 +26,7 @@ const CartProvider = ({children}) => {
         exist ?
         setCarrito(carrito.map(
             prod=> prod.id === item.id ?
-            {...exist, quantity: exist.quantity + item.quantity}
+            {...prod, quantity: prod.quantity + item.quantity}
             :
             prod))
             :
@@ -67,7 +62,6 @@ const CartProvider = ({children}) => {
         setCarrito,
         addProducts,
         deleteItem,
-        eliminarTodo,
         handleIncrement,
         handleDecrement,
     }

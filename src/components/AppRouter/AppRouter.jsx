@@ -8,7 +8,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer.jsx'
 import AboutUs from '../../pages/AboutUs/AboutUs.jsx';
 import Error404Page from '../../pages/Error404Page/Error404Page.jsx';
 import CartPage from '../../pages/Cart/CartPage.jsx';
-import Contact from '../../pages/Contact/Contact.jsx';
+import Contact from '../../pages/ContactPage/ContactPage.jsx';
 import PaymentContainer from '../../pages/PaymetContainer/PaymentContainer.jsx';
 import TicketPage from '../../pages/TicketPage/TicketPage';
 

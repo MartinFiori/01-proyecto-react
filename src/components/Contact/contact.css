@@ -1,0 +1,83 @@
+.contact-container{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form h2{
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    width: clamp(340px,60vw, 800px);
+    background: #dfe9ea;
+    padding: 30px;
+    color: var(--text-color);
+}
+
+.inputs-Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact-form--userInfo,
+.contact-form--userComment{
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 330px;
+}
+
+.contact-form label{
+    margin-bottom: .9rem;
+    font-size: 1.8rem;
+}
+
+input,
+label,
+textarea{
+    border: none;
+    outline: none;
+    resize: none;
+    color: var(--text-color);
+}
+
+textarea{
+    font-size: 1.8rem;
+    width: 330px !important;
+    height: 240px;
+}
+
+input,
+textarea{
+    padding: 0.5em;
+    background: #55bcc8b7;
+    border-radius: 7px;
+    color: #000;
+}
+.contact-form--userInfo input{
+    margin-bottom: 1.9rem;
+}
+
+input[type="submit"] {
+    width: 330px;
+    margin-left: auto;
+    margin-bottom: 0;
+    background: #064349;
+    color: #fff;
+    cursor: pointer;
+}
+
+.errorMessage{
+    color: red;
+    font-size: 14px;
+}

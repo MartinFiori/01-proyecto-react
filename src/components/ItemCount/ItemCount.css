@@ -104,7 +104,6 @@
 .productoComprado{
     display: flex;
     align-items: center;
-    justify-content: start;
 }
 .productoComprado__icon{
     font-size: 2rem;

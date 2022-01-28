@@ -4,8 +4,6 @@ import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList.jsx'
 import Pacman from "../Pacman/Pacman";
 
-// React ROUTER
-import { useParams } from "react-router-dom";
 // Firebase
 import db from "../../Firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -14,7 +12,6 @@ import { collection, getDocs } from "firebase/firestore";
 const ItemListContainer = () =>{
     const [loading, setLoading] = useState(true);
     const [dataItems, setDataItems] = useState([]);
-    const {category} = useParams();
 
     const getProducts = async (db)=>{
         const productosCol = collection(db,'products');
@@ -30,18 +27,9 @@ const ItemListContainer = () =>{
 
     useEffect(() => {
         getProducts(db).then((datas)=>{
-                if (category) {
-                    datas.filter(data=>{
-                        if (data.category === category) {
-                            setDataItems(x=> [...x,data])
-                            setLoading(false)
-                        }
-                    })
-                } else {
                     setDataItems(datas)
                     console.log("entron en la condicien")
                     setLoading(false)
-                }
         })
     }, []);
 
