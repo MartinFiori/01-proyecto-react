@@ -149,7 +149,7 @@
     transition: filte 300ms ease;
 }
 
-.procesoPago:hover{
+.procesoPago:hover {
     filter: brightness(1.2);
 }
 
@@ -157,6 +157,7 @@
     font-size: 1.8rem;
     color: #fff;
     margin-left: 10px;
+    white-space: nowrap
 }
 
 .procesoPagoContainer>p,
@@ -173,3 +174,28 @@
 .disabled {
     pointer-events: none;
 }
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:678px) {
+    .emptyCartContainer {
+        margin: 6rem auto 2rem;
+        padding: 1.5rem;
+    }
+    .itemList__details--quantity span {
+        width: 30px;
+    }
+    .emptyCartContainer h2 {
+        top: -35px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .itemList__details--info h3 {
+        display: none;
+    }
+    .itemList__details--info div{
+        align-self: center;
+    }
+}
+
+/* MEDIA QUERIES */

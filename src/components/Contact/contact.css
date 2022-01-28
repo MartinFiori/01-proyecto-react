@@ -96,10 +96,13 @@ input[type="submit"] {
     }
     .contact-form {
         width: 600px;
-        padding: 30px;
+        padding: 15px;
     }
     .input{
         width: 100% !important;
+    }
+    .contact-container{
+        height: auto;
     }
 }
 /* MEDIA QUERY */

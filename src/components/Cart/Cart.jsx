@@ -1,17 +1,22 @@
 import React, { useContext, useEffect } from 'react';
-import { CartContext } from '../../context/CartContext/CartContext';
-import { Link } from 'react-router-dom';
 import './Cart.css'
+
+// Components
 import CartIcon from '../svg/CartIcon'
 import BackToMenu from '../BackToMenu/BackToMenu';
 import EmptyCart from '../EmptyCart/EmptyCart.jsx'
+// Context
+import { CartContext } from '../../context/CartContext/CartContext';
+
+// React Router dom
+import { Link } from 'react-router-dom';
+
 
 const Cart = () => {
     const { carrito, deleteItem, handleDecrement, handleIncrement, total } = useContext(CartContext);
     
     useEffect(() => {
         console.log("productos dentro del cart: ", carrito)
-            // console.log(carrito.length)
     }, []);
     
     return(
