@@ -16,8 +16,6 @@
         height: calc(100vh - 60px);
         width: 100vw;
         display: inline-block;
-        /* align-items: center; */
-        /* justify-content: center; */
         overflow-x: hidden;
         margin-left: 30vw ;
         margin-top: 60vw;
@@ -29,8 +27,6 @@
         height: 30vh;
         width: 50vw;
         display: inline-block;
-        /* align-items: center; */
-        /* justify-content: center; */
         overflow-x: hidden;
         margin-left: 40vw;
         margin-top: 30vw;
