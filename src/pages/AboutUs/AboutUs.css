@@ -1,11 +1,11 @@
-.homeContainer{
+.homeContainer {
     font-size: 7rem;
     color: var(--text-color);
     text-align: center;
     padding: 2.6rem;
 }
 
-.homeContainer h1{
+.homeContainer h1 {
     color: var(--primary-color);
     font-size: 3.6rem;
     text-align: center;
@@ -15,19 +15,19 @@
 }
 
 .homeContainer h2,
-.brillandocon{
+.brillandocon {
     font-size: 3rem;
     margin-bottom: 1em;
     margin-inline: auto;
     max-width: 80%;
 }
 
-.brillandocon{
+.brillandocon {
     color: var(--primary-color);
     position: relative;
 }
 
-.brillandocon::after{
+.brillandocon::after {
     position: absolute;
     content: '';
     bottom: 0;
@@ -40,36 +40,36 @@
     transform-origin: right;
 }
 
-.brillandocon:hover::after{
+.brillandocon:hover::after {
     transition: transform 250ms ease-out;
     transform-origin: left;
     transform: scaleX(1);
 }
 
-.containerInfo{
+.containerInfo {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.containerInfo__nosotros{
+.containerInfo__nosotros {
     padding: 2rem;
     max-width: 70%;
 }
 
-.containerInfo__nosotros--pregunta{
+.containerInfo__nosotros--pregunta {
     font-size: 2.4rem;
 }
 
-.containerInfo__nosotros--respuesta{
+.containerInfo__nosotros--respuesta {
     font-size: 2rem;
     margin-bottom: .9em;
     font-weight: 400;
 }
 
 
-.containerInfo__img{
+.containerInfo__img {
     width: 350px;
     height: 350px;
     border-radius: 50%;
@@ -77,7 +77,33 @@
 }
 
 
-.plasticoPla{
+.plasticoPla {
     color: var(--primary-color);
     font-size: 2rem;
 }
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:1200px) {
+    .containerInfo {
+        flex-direction: column;
+    }
+
+    .containerInfo__img {
+        margin-bottom: 3rem;
+    }
+
+    .containerInfo__nosotros {
+        padding: 1rem;
+        max-width: 90%;
+    }
+
+    @media only screen and (max-width:500px) {
+        .containerInfo__img {
+            width: 100vw;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+}
+
+/* MEDIA QUERIES */

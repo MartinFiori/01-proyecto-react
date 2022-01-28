@@ -19,15 +19,16 @@
     width: 100%;
 }
 
-.detail > *{
+.detail>* {
     margin-bottom: 25px;
 }
 
-.detail__header--title{
+.detail__header--title {
     font-size: 2.8rem;
     color: var(--text-color);
 }
-.detail__header--price{
+
+.detail__header--price {
     font-size: 1.8rem;
     text-align: center;
     font-weight: bold;
@@ -55,11 +56,32 @@
     border-radius: 5px;
 }
 
-.detail__discount{
+.detail__discount {
     font-size: 1.9rem;
     font-weight: bold;
 }
 
-.detail__bill{
+.detail__bill {
     font-size: 2rem;
 }
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:900px) {
+    .detailContainer {
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .detailContainer__img {
+        width: 100%;
+    }
+
+    .detail {
+        margin: 25px 0 25px;
+        padding: 15px;
+        /* width: 100%;*/
+    }
+}
+
+/* MEDIA QUERIES */

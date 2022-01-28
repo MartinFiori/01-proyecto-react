@@ -59,7 +59,7 @@ const Payment = () => {
             <label htmlFor="userName">Nombre completo:</label>
             <p className="errorMessage">{errors.userName?.message}</p>
             <input type="text" {...register('userName',{required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z]+\s[a-z]+$/i, message: "Por favor, ingrese su nombre completo"}})}/>
-            <label htmlFor="userNumber">Teléfono <span>(sin espacios ni guiones):</span></label>
+            <label htmlFor="userNumber">Teléfono: <span>(sin espacios ni guiones):</span></label>
             <p className="errorMessage">{errors.userNumber?.message}</p>
             <input type="number" {...register('userNumber',{required:'Por favor, ingrese un número', pattern:{value:/^[\d]{8,12}$/,message:"Por favor, ingrese un número válido"}})}/>
             <label htmlFor="userEmail">Email:</label>

@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './AboutUs.css'
+
+// Components
 import Pacman from '../../components/Pacman/Pacman';
 import Img from '../../assets/home/home1.jpg'
 

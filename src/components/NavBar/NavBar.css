@@ -176,3 +176,9 @@
     margin-left: auto;
 }
 
+/* MEDIA QUERIES */
+@media only screen and (max-width: 500px) {
+    .nav__list--container {
+        width: 100vw;
+    }
+}

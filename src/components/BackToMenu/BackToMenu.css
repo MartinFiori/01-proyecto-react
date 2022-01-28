@@ -1,8 +1,9 @@
-.backToMenuContainer{
+.backToMenuContainer {
     width: 200px;
     margin-bottom: 50px;
 }
-.backToMenuContainer__inner{
+
+.backToMenuContainer__inner {
     background: var(--primary-color);
     width: 175px;
     padding: 1rem;
@@ -13,22 +14,32 @@
     justify-content: space-between;
     clip-path: circle(15% at 19% 50%);
     cursor: pointer;
-    transition: clip-path 500ms ease;
+    transition: clip-path 500ms ease, margin-left 500ms ease;
 }
 
-.backToMenuContainer__inner:hover{
+.backToMenuContainer__inner:hover {
     clip-path: circle(75%);
 }
 
-.backToMenuContainer__inner p{
+.backToMenuContainer__inner p {
     font-size: 1.6rem;
     text-align: right;
 }
 
-.backToMenuContainer__inner .backIcon{
+.backToMenuContainer__inner .backIcon {
     flex-basis: 30%;
 }
 
-.backToMenuContainer__inner p{
+.backToMenuContainer__inner p {
     color: #fff;
 }
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width:1000px) {
+    .backToMenuContainer__inner {
+        margin-left: 15%;
+    }
+}
+
+/* MEDIA QUERIES */

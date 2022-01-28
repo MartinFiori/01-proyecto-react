@@ -1,5 +1,7 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import './CartWidget.css'
+
+// React router Dom
 import { Link } from 'react-router-dom';
 
 // Components
