@@ -60,7 +60,9 @@
 
 .containerInfo__nosotros--pregunta {
     font-size: 2.4rem;
-    white-space: nowrap
+    white-space: nowrap;
+    text-decoration: underline;
+    font-weight: 900;
 }
 
 .containerInfo__nosotros--respuesta {
@@ -102,6 +104,12 @@
         padding: 0;
         max-width: 90%;
     }
+    .containerInfo__nosotros--respuesta {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+        font-weight: 400;
+    }
+}
 
     @media only screen and (max-width:500px) {
         .containerInfo__img {
@@ -109,11 +117,12 @@
             height: 100%;
             border-radius: 0;
         }
-        .homeContainer {
-            padding: 1.6rem;
-        }
-
     }
-}
+
+    @media only screen and (max-width:900px) {
+        .homeContainer {
+            padding: 1rem;
+        }
+    }
 
 /* MEDIA QUERIES */
