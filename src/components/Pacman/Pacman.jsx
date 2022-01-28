@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pacman.css'
 import PacmanLoader from "react-spinners/PacmanLoader";
 
 const Pacman = () => {
