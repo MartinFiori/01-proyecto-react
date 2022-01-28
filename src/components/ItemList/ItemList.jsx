@@ -6,17 +6,15 @@ const ItemList = ({dataItems})=>{
 
     
     return(
-        <>
-            <div className="cards__container">
-                {
-                dataItems.map((prod, index)=>{
-                    return(
-                        <Item key={index} data={prod}/>
-                    )
-                })
-                }
-            </div>
-        </>
+        <div className="cards__container">
+            {
+            dataItems.map((prod, index)=>{
+                return(
+                    <Item key={index} data={prod}/>
+                )
+            })
+            }
+        </div>
     )
 }
 

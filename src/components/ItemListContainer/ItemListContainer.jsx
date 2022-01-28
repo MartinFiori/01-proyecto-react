@@ -35,14 +35,12 @@ const ItemListContainer = () =>{
 
     return(
         <>
-        {
+            {
             loading ?
             <Pacman/>
             :
-            <div>
                 <ItemList dataItems={dataItems}/>
-            </div>
-        }
+            }
         </>
     )
 }
