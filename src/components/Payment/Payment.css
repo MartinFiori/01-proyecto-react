@@ -202,8 +202,21 @@ input[type=number] {
 @media only screen and (max-width: 900px){
     .Payment {
         flex-direction: column-reverse;
-        width: 400px;
+        max-width: 400px;
         margin-inline: auto;
+    }
+}
+@media only screen and (max-width: 678px) {
+    .formContainer {
+        padding: 15px;
+        background: #dfe9ea;
+        align-self: flex-start;
+        margin-inline: auto;
+    }
+    .listItems-container {
+        align-self: flex-start;
+        margin: 3rem auto;
+        color: var(--text-color);
     }
 }
 /* MEDIA QUERIES */

@@ -128,3 +128,8 @@
     pointer-events: none;
 }
 
+@media only screen and (max-width: 900px){
+    .contador__seguirComprando, .contador__finalizarCompra {
+        width: 95%;
+    }
+}

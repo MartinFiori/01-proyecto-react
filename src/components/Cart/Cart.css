@@ -177,10 +177,6 @@
 
 /* MEDIA QUERIES */
 @media only screen and (max-width:678px) {
-    .emptyCartContainer {
-        margin: 6rem auto 2rem;
-        padding: 1.5rem;
-    }
     .itemList__details--quantity span {
         width: 30px;
     }

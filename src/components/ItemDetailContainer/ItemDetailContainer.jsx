@@ -15,13 +15,6 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
     const { id } = useParams();
 
-
-    // const getItem = new Promise((resolve,reject)=>{
-    //     setTimeout(() => {
-    //         resolve(localAPI)
-    //     }, 500);
-    // })
-
     const getProduct = async (db)=>{
         const docRef = doc(db, 'products', id);
         const docSnap = await getDoc(docRef);
@@ -42,7 +35,7 @@ const ItemDetailContainer = () => {
     
     return(
         <>
-        <BackToMenu place={'/'}/>
+        {/* <BackToMenu place={'/'}/> */}
         {        
             loading ?
                 <Pacman/>

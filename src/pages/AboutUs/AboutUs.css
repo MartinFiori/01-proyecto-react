@@ -60,6 +60,7 @@
 
 .containerInfo__nosotros--pregunta {
     font-size: 2.4rem;
+    white-space: nowrap
 }
 
 .containerInfo__nosotros--respuesta {
@@ -87,13 +88,18 @@
     .containerInfo {
         flex-direction: column;
     }
+    .homeContainer h2 {
+        font-size: 2.6rem;
+        margin-inline: auto;
+        max-width: 100%;
+    }
 
     .containerInfo__img {
         margin-bottom: 3rem;
     }
 
     .containerInfo__nosotros {
-        padding: 1rem;
+        padding: 0;
         max-width: 90%;
     }
 
@@ -103,6 +109,10 @@
             height: 100%;
             border-radius: 0;
         }
+        .homeContainer {
+            padding: 1.6rem;
+        }
+
     }
 }
 
