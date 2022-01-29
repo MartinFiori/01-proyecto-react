@@ -1,12 +1,41 @@
 .footer-container{
-    margin-top: auto;
     width: 100vw;
     height: 200px;
     background: var(--text-color);
     color: #fff;
     padding: 3rem;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.footer-container p{
-    font-size: 2rem;
+.redes-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-inline: auto;
+    width: 200px;
+    margin-bottom: 1.5rem;
 }
+
+.links-container{
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+}
+
+.links-container a{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.copyright{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+

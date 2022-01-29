@@ -26,6 +26,12 @@ html{
   min-height: 100vh;
 }
 
+body{
+  position: relative;
+  padding-bottom: 250px;
+  min-height: 100vh;
+}
+
 
 /* Variables */
 :root{
