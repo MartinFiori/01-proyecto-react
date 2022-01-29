@@ -18,27 +18,27 @@ const Footer = () => {
         <div className='footer-container'>
             <div className="redes-container">
                 <a href="https://www.facebook.com/EstoyBrillandoCon/" target={"_blank"}>
-                    <Facebook width={size} height={size} fill={fillColor}/>
+                    <Facebook width={size} height={size} fill={fillColor} className="facebook"/>
                 </a>
                 <a href="https://www.instagram.com/estoybrillandocon/?hl=es" target={"_blank"}>
-                    <Instagram width={size} height={size} fill={fillColor}/>
+                    <Instagram width={size} height={size} fill={fillColor} className="instagram"/>
                 </a>
                 <a href="https://api.whatsapp.com/send?phone=+5491140699688" target={"_blank"}>
-                    <Whatsapp width={size} height={size} fill={fillColor}/>
+                    <Whatsapp width={size} height={size} fill={fillColor} className="whatsapp"/>
                 </a>
             </div>
             <div className="links-container">
-                <Link to="/">
+                <Link to="/" className='links-container--anchor'>
                     Inicio
                 </Link>
-                <Link to="/contact-us">
+                <Link to="/contact-us" className='links-container--anchor'>
                     Contáctenos
                 </Link>
-                <Link to="/about-us">
+                <Link to="/about-us" className='links-container--anchor'>
                     Nosotros
                 </Link>
             </div>
-            <p className='copyright'>&copy; All rights reserved</p>
+            <p className='copyright'><a href="https://www.linkedin.com/in/martin-fiori-551669144/" className='name'>Martín Fiori </a>&copy; All rights reserved</p>
         </div>
     )
 }

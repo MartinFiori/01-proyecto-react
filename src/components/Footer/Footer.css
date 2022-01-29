@@ -33,9 +33,51 @@
     color: #fff;
 }
 
-.copyright{
+.copyright,
+.name{
     font-size: 1.4rem;
     text-align: center;
+    color: #fff;
 }
 
+.name:hover{
+    text-decoration: underline;
+}
 
+.facebook,
+.instagram,
+.whatsapp{
+    transition: fill 250ms ease;
+}
+
+.facebook:hover{
+    fill: #1877f2;
+}
+
+.instagram:hover{
+    fill: #e1306c;
+}
+
+.whatsapp:hover{
+    fill:#25d366;
+}
+
+.links-container--anchor{
+    position: relative;
+}
+
+.links-container--anchor::after{
+    content: '';
+    display: block;
+    height: 3px;
+    transform: scaleX(0);
+    background: #fff;
+    border-radius: 5px;
+    transition: transform 250ms ease-in-out;
+    transform-origin: right;
+}
+
+.links-container--anchor:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}

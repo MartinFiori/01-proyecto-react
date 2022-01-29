@@ -16,7 +16,7 @@
 }
 
 .card__header {
-    height: 75px;
+    height: 65px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -48,14 +48,14 @@
 
 .card__img {
     width: 100%;
-    height: 200px;
+    height: 230px;
 }
 
 .card__buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 75px;
+    height: 55px;
 }
 
 .card__buttons--icon {
