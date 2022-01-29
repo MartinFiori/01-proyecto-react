@@ -11,6 +11,7 @@ import CartPage from '../../pages/Cart/CartPage.jsx';
 import Contact from '../../pages/ContactPage/ContactPage.jsx';
 import PaymentContainer from '../../pages/PaymetContainer/PaymentContainer.jsx';
 import TicketPage from '../../pages/TicketPage/TicketPage';
+import Footer from '../../components/Footer/Footer.jsx';
 
 
 // Context
@@ -32,6 +33,7 @@ const AppRouter = () => {
                         <Route path='*' element ={<Error404Page/>}/>
                     </Routes>
             </CartProvider>
+            <Footer/>
         </BrowserRouter>
     )
 }
