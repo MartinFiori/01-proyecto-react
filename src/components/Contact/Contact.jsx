@@ -35,7 +35,7 @@ function Contact() {
                 <div className="inputs-Container">
                     <div className='contact-form--userInfo'>
                         <label htmlFor="">Nombre completo:</label>
-                        <input type="text" {...register('name', {required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z]+\s[a-z]+$/i, message:"Por favor, ingrese su nombre completo"}})} className='input'/>
+                        <input type="text" {...register('name', {required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z\u00C0-\u00FF]+\s[a-z\u00C0-\u00FF]+$/i, message:"Por favor, ingrese su nombre completo"}})} className='input'/>
                         <p className="errorMessage">{errors.name?.message}</p>
                         <label htmlFor="">Teléfono de contacto:</label>
                         <input type="number" {...register('number', {required:'Por favor, ingrese su teléfono', pattern:{value:/^[\d]{8,12}/, message:"Por favor, ingrese un número válido"}})} className='input'/>
