@@ -46,7 +46,7 @@ function Contact() {
                     </div>
                     <div className='contact-form--userComment'>
                         <label htmlFor="">Deje su comentario:</label>
-                        <textarea className='input' {...register('comment', {required:'Por favor, deje su comentario', pattern:{value:/^[a-z]{2,}/, message:"Por favor, deje un comentario válido"}})} rows={10} cols={35} ></textarea>
+                        <textarea className='input' {...register('comment', {required:'Por favor, deje su comentario', pattern:{value:/^[a-z\u00C0-\u00FF]{2,}/, message:"Por favor, deje un comentario válido"}})} rows={10} cols={35} ></textarea>
                         <p className="errorMessage">{errors.comment?.message}</p>
                     </div>
                 </div>

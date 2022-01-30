@@ -15,7 +15,7 @@ const Footer = () => {
     const size = "40"
     const fillColor = "#fff"
     return(
-        <div className='footer-container'>
+        <footer className='footer-container'>
             <div className="redes-container">
                 <a href="https://www.facebook.com/EstoyBrillandoCon/" target={"_blank"}>
                     <Facebook width={size} height={size} fill={fillColor} className="facebook"/>
@@ -39,7 +39,7 @@ const Footer = () => {
                 </Link>
             </div>
             <p className='copyright'><a href="https://www.linkedin.com/in/martin-fiori-551669144/" className='name'>Martín Fiori </a>&copy; All rights reserved</p>
-        </div>
+        </footer>
     )
 }
 
