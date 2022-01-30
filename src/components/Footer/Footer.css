@@ -82,16 +82,4 @@
     transform-origin: left;
 }
 
-.check{
-    font-size: 7rem;
-    color: #008000;
-}
 
-.check-container{
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 350px;
-    align-items: center;
-    justify-content: center;
-}
