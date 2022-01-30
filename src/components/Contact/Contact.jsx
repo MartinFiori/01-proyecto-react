@@ -19,7 +19,7 @@ function Contact() {
     const getInfo= (dataFromForm) =>{
         let info = {dataFromForm}
         info.date = `${dateArgentina} a las ${horaArgentina}`
-        // pushComment(info)
+        pushComment(info)
         console.log(dataFromForm)
         setComentSent(true)
         console.log(comentSent)
