@@ -60,7 +60,7 @@ function Contact() {
                     </div>
                     :
                     <div className="check-container">
-                        <i class="fas fa-check-circle check"></i>
+                        <i className="fas fa-check-circle check"></i>
                         <h2>¡Muchas gracias!</h2>
                         <p>Su comentario se ha enviado con éxito</p>
                     </div>
