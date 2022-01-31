@@ -101,7 +101,7 @@ input[type="submit"] {
 
 .check{
     font-size: 7rem;
-    color: var(--text-color);
+    color: rgb(22, 156, 22);
     margin-bottom: 1.8rem;
 }
 
