@@ -13,6 +13,9 @@ import { collection, addDoc } from "firebase/firestore";
 // react hook form
 import { useForm } from "react-hook-form";
 
+// Moment
+import moment from 'moment'
+
 
 
 const Payment = () => {
@@ -20,10 +23,11 @@ const Payment = () => {
   const [displayer, setDisplayer] = useState(false);
   const [ticketInfo, setTicketInfo] = useState({});
   const { register, handleSubmit, formState: { errors } } = useForm();
-  let date = new Date();
-  let dateArgentina = date.toLocaleDateString("es-ES");
-  let horaArgentina = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
   const [orderId, setOrderId] = useState(null);
+
+  const m = moment();
+  const dia = m.format('DD/MM/YYYY');
+  const hora = m.format('hh:mm:ss a');
 
   const sendOrder = (dataFromForm) => {
     let order = {};
@@ -31,7 +35,7 @@ const Payment = () => {
     order.buyer = dataFromForm;
     order.cart = carrito;
     order.total = (90 * total) / 100;
-    order.date = `${dateArgentina} a las ${horaArgentina}`;
+    order.date = `${dia} a las ${hora}`;
     console.log("pedido final final: ", order);
     setTicketInfo(order)
     pushOrder(order);

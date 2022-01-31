@@ -10,6 +10,8 @@ import CartIcon from '../svg/CartIcon'
 // Context
 import { CartContext } from '../../context/CartContext/CartContext';
 
+// Transition Group
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 const CartWidget = ({ setMenuIsOpen, value })=>{
     const { carrito, deleteItem, totalPrice, cartLength } = useContext(CartContext);
@@ -44,20 +46,26 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                     </Link>
                                 </li>
                                 :
-                                    carrito.map((prod,index)=>{
-                                        return(
-                                            <li className='list__item' key={index}>
-                                                <img className='list__item--img' src={require(`../../assets/cards/${prod.img}`)} alt={prod.name} />
-                                                <div className="list__item--detalle">
-                                                    <h4>{prod.name}</h4>
-                                                    <p className='list__item--valores'>
-                                                        <span>{prod.quantity}</span>&times;<span>{`${prod.price}`}</span>
-                                                    </p>
-                                                </div>
-                                                <div className="list__item--delete"><span onClick={()=>deleteItem(prod)}>&times;</span></div>
-                                            </li>
-                                        )
-                                    })
+                                <TransitionGroup>
+                                    {
+                                        carrito.map((prod)=>{
+                                            return(
+                                                <CSSTransition key={prod.id} timeout={500} classNames="itemGroupCartWidget">
+                                                    <li className='list__item itemGroup' >
+                                                        <img className='list__item--img' src={require(`../../assets/cards/${prod.img}`)} alt={prod.name} />
+                                                        <div className="list__item--detalle">
+                                                            <h4>{prod.name}</h4>
+                                                            <p className='list__item--valores'>
+                                                                <span>{prod.quantity}</span>&times;<span>{`${prod.price}`}</span>
+                                                            </p>
+                                                        </div>
+                                                        <div className="list__item--delete"><span onClick={()=>deleteItem(prod)}>&times;</span></div>
+                                                    </li>
+                                                </CSSTransition>
+                                            )
+                                        })
+                                    }
+                                </TransitionGroup>
                             }
                             </ul>
                             {

@@ -94,6 +94,7 @@
     max-height: 500px;
     overflow-y: auto;
     padding-bottom: 25px;
+    overflow-x: hidden;
 }
 
 .cartContainer__list::-webkit-scrollbar {
@@ -213,3 +214,29 @@
         max-height: 400px;
     }
 }
+
+/* CCSTransitions */
+.itemGroupCartWidget-enter {
+    opacity: 0;
+    left: -100%;
+}
+
+.itemGroupCartWidget-enter-active {
+    opacity: 1;
+    left: 0;
+    transition: all 500ms ease-in;
+    position: relative;
+}
+
+.itemGroupCartWidget-exit {
+    opacity: 1;
+    left: 0;
+    position: relative;
+}
+
+.itemGroupCartWidget-exit-active {
+    left: 100%;
+    opacity: 0;
+    transition: all 500ms ease-in;
+}
+/* CCSTransitions */

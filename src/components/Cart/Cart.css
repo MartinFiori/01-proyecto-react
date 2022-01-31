@@ -195,3 +195,30 @@
 }
 
 /* MEDIA QUERIES */
+
+
+/* CSSTransition */
+.itemGroupCart-enter {
+    opacity: 0;
+    left: -100%;
+}
+
+.itemGroupCart-enter-active {
+    opacity: 1;
+    left: 0;
+    transition: all 500ms ease-in;
+    position: relative;
+}
+
+.itemGroupCart-exit {
+    opacity: 1;
+    left: 0;
+    position: relative;
+}
+
+.itemGroupCart-exit-active {
+    left: 100%;
+    opacity: 0;
+    transition: all 500ms ease-in;
+}
+/* CSSTransition */

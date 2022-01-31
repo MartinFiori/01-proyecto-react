@@ -5,11 +5,15 @@ import './Cart.css'
 import CartIcon from '../svg/CartIcon'
 import BackToMenu from '../BackToMenu/BackToMenu';
 import EmptyCart from '../EmptyCart/EmptyCart.jsx'
+
 // Context
 import { CartContext } from '../../context/CartContext/CartContext';
 
 // React Router dom
 import { Link } from 'react-router-dom';
+
+// Transition Group
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 
 const Cart = () => {
@@ -27,40 +31,46 @@ const Cart = () => {
                     Su Carrito
                 </h2>
                 <ul className="emptyCartList">
+                {
+                    carrito.length > 0 ?
+                    <TransitionGroup>
                     {
-                        carrito.length > 0 ?
                         carrito.map((prod, index)=>{
                             return(
-                                <li key={index} className='itemList'>
-                                    <div className='itemList__details--info'>
-                                        <Link to={`/detail/${prod.id}`}>
-                                            <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
-                                        </Link>
-                                        <div>
-                                            <h3>{prod.name}</h3>
-                                            <p>{`$${prod.quantity*prod.price}`}</p>
+                                <CSSTransition key={prod.id} timeout={500} classNames="itemGroupCart">
+                                    <li key={index} className='itemList'>
+                                        <div className='itemList__details--info'>
+                                            <Link to={`/detail/${prod.id}`}>
+                                                <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
+                                            </Link>
+                                            <div>
+                                                <h3>{prod.name}</h3>
+                                                <p>{`$${prod.quantity*prod.price}`}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="itemList__details--quantity">
-                                        <button onClick={()=>handleDecrement(prod.id)} className={`${prod.quantity == 1 && 'disabled'}`}>
-                                            <i className="fas fa-minus"></i>
-                                        </button>
-                                        <span>{prod.quantity}</span>
-                                        <button onClick={()=>handleIncrement(prod.id)} className={`${prod.quantity == prod.stock && 'disabled'}`}>
-                                            <i className="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div className="itemList__details--delete">
-                                        <span onClick={()=>deleteItem(prod)}>
-                                            &times;
-                                        </span>
-                                    </div>
-                                </li>
+                                        <div className="itemList__details--quantity">
+                                            <button onClick={()=>handleDecrement(prod.id)} className={`${prod.quantity == 1 && 'disabled'}`}>
+                                                <i className="fas fa-minus"></i>
+                                            </button>
+                                            <span>{prod.quantity}</span>
+                                            <button onClick={()=>handleIncrement(prod.id)} className={`${prod.quantity == prod.stock && 'disabled'}`}>
+                                                <i className="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div className="itemList__details--delete">
+                                            <span onClick={()=>deleteItem(prod)}>
+                                                &times;
+                                            </span>
+                                        </div>
+                                    </li>
+                                </CSSTransition>
                             )
                         })
-                        :
-                        <EmptyCart/>
                     }
+                    </TransitionGroup>
+                    :
+                    <EmptyCart/>
+                }
                 {
                     carrito.length !== 0 && 
                         <div className='procesoPagoContainer'>
