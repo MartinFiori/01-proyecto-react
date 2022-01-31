@@ -49,14 +49,15 @@ const CartWidget = ({ setMenuIsOpen, value })=>{
                                 <TransitionGroup>
                                     {
                                         carrito.map((prod)=>{
+                                            const { id, name, img, quantity, price }= prod
                                             return(
-                                                <CSSTransition key={prod.id} timeout={500} classNames="itemGroupCartWidget">
+                                                <CSSTransition key={id} timeout={500} classNames="itemGroupCartWidget">
                                                     <li className='list__item itemGroup' >
-                                                        <img className='list__item--img' src={require(`../../assets/cards/${prod.img}`)} alt={prod.name} />
+                                                        <img className='list__item--img' src={require(`../../assets/cards/${img}`)} alt={name} />
                                                         <div className="list__item--detalle">
-                                                            <h4>{prod.name}</h4>
+                                                            <h4>{name}</h4>
                                                             <p className='list__item--valores'>
-                                                                <span>{prod.quantity}</span>&times;<span>{`${prod.price}`}</span>
+                                                                <span>{quantity}</span>&times;<span>{`${price}`}</span>
                                                             </p>
                                                         </div>
                                                         <div className="list__item--delete"><span onClick={()=>deleteItem(prod)}>&times;</span></div>

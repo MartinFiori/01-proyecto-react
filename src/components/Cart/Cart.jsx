@@ -18,6 +18,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 const Cart = () => {
     const { carrito, deleteItem, handleDecrement, handleIncrement, total } = useContext(CartContext);
+
     
     useEffect(() => {
         console.log("productos dentro del cart: ", carrito)
@@ -36,24 +37,25 @@ const Cart = () => {
                     <TransitionGroup>
                     {
                         carrito.map((prod, index)=>{
+                            const {id, name, img, quantity, price, stock }= prod
                             return(
-                                <CSSTransition key={prod.id} timeout={500} classNames="itemGroupCart">
+                                <CSSTransition key={id} timeout={500} classNames="itemGroupCart">
                                     <li key={index} className='itemList'>
                                         <div className='itemList__details--info'>
-                                            <Link to={`/detail/${prod.id}`}>
-                                                <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} className='fotito'/>
+                                            <Link to={`/detail/${id}`}>
+                                                <img src={require(`../../../public/assets/cards/${img}`)} alt={`${name}`} className='fotito'/>
                                             </Link>
                                             <div>
-                                                <h3>{prod.name}</h3>
-                                                <p>{`$${prod.quantity*prod.price}`}</p>
+                                                <h3>{name}</h3>
+                                                <p>{`$${quantity*price}`}</p>
                                             </div>
                                         </div>
                                         <div className="itemList__details--quantity">
-                                            <button onClick={()=>handleDecrement(prod.id)} className={`${prod.quantity == 1 && 'disabled'}`}>
+                                            <button onClick={()=>handleDecrement(id)} className={`${quantity == 1 && 'disabled'}`}>
                                                 <i className="fas fa-minus"></i>
                                             </button>
-                                            <span>{prod.quantity}</span>
-                                            <button onClick={()=>handleIncrement(prod.id)} className={`${prod.quantity == prod.stock && 'disabled'}`}>
+                                            <span>{quantity}</span>
+                                            <button onClick={()=>handleIncrement(id)} className={`${quantity == stock && 'disabled'}`}>
                                                 <i className="fas fa-plus"></i>
                                             </button>
                                         </div>

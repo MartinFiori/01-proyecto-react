@@ -79,18 +79,21 @@ const Payment = () => {
               { !displayer ? "Mostrar" : "Ocultar"} resumen del pedido
             </h2>
             <ul className="listItems">
-              {carrito.map((prod) => {
-                return (
-                  <li className="listItems__item" key={prod.id}>
-                    <div className="listItems__item--imgInfo">
-                      <img src={require(`../../../public/assets/cards/${prod.img}`)} alt={`${prod.name}`} />
-                      <span>{prod.quantity}</span>
-                    </div>
-                    <h3>{prod.name}</h3>
-                    <p>{prod.price}&nbsp;$</p>
-                  </li>
-                );
-              })}
+              {
+                carrito.map((prod) => {
+                  const {id, name, img, quantity, price }= prod
+                  return (
+                    <li className="listItems__item" key={id}>
+                      <div className="listItems__item--imgInfo">
+                        <img src={require(`../../../public/assets/cards/${img}`)} alt={`${name}`} />
+                        <span>{quantity}</span>
+                      </div>
+                      <h3>{name}</h3>
+                      <p>{price}&nbsp;$</p>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </div>
           <div className="listItems-container__subtotal footer-text">
