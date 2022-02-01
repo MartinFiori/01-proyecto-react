@@ -7,6 +7,10 @@ import CartIcon from '../svg/CartIcon'
 // Router DOM
 import { Link } from 'react-router-dom';
 
+// Toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const ItemCount = ({ onAdd, addToCart, stock })=>{
     const [count, setCount]= useState(0)
@@ -28,6 +32,20 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
             addToCart()
     }
 
+    const notify = () => {
+        toast.success('Producto añadido al carrito', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: "toastify-compra"
+        });
+        console.log("hola")
+    }
+
 
     return(
         <div className="contador__container">
@@ -46,7 +64,7 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
             <div className='containerCompra'>
             {
                 stock === totalStock ?
-                <button className={`contador__comprar ${count === 0 && 'disabled'}`} onClick={handleComprar}>
+                <button className={`contador__comprar ${count === 0 && 'disabled'}`} onClick={()=>{handleComprar();notify()}}>
                     Añadir al carrito
                 </button>
                 :
@@ -64,6 +82,7 @@ const ItemCount = ({ onAdd, addToCart, stock })=>{
                 </div>
             }
             </div>
+            <ToastContainer/>
         </div>
     )
 }

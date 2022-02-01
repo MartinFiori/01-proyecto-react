@@ -128,6 +128,25 @@
     pointer-events: none;
 }
 
+.Toastify__toast-theme--light{
+    background: #badfe3 !important;
+    font-size: 45px;
+    color: #053b41 !important;
+}
+
+.Toastify__progress-bar-theme--light{
+    background: #05282c !important;
+}
+
+.Toastify__toast-icon svg{
+    fill: #053b41;
+}
+
+.Toastify__close-button--light svg{
+    fill: #053b41 !important;
+    opacity: 1 !important;
+}
+
 @media only screen and (max-width: 900px){
     .contador__seguirComprando, .contador__finalizarCompra {
         width: 95%;
