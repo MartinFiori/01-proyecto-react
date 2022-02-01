@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
     
     return(
         <>
-        {/* <BackToMenu place={'/'}/> */}
+        <BackToMenu place={'/'}/>
         {        
             loading ?
                 <Pacman/>

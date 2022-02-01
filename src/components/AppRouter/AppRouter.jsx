@@ -29,6 +29,8 @@ const AppRouter = () => {
                         <Route path='/contact-us' element ={<Contact/>}/>
                         <Route path='/ticket-page' element ={<TicketPage/>}/>
                         <Route path='/payment-process' element={<PaymentContainer/>}/>
+                        <Route path='/' element={<ItemListContainer/>}/> 
+                        <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
                         <Route path='/' element ={<ItemListContainer/>}/>
                         <Route path='*' element ={<Error404Page/>}/>
                     </Routes>
