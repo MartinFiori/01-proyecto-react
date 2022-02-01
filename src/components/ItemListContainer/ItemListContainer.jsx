@@ -27,9 +27,9 @@ const ItemListContainer = () =>{
 
     useEffect(() => {
         getProducts(db).then((datas)=>{
-                    setDataItems(datas)
-                    console.log("entron en la condicien")
-                    setLoading(false)
+            setDataItems(datas)
+            console.log("entron en la condicien")
+            setLoading(false)
         })
     }, []);
 

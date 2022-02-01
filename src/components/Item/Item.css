@@ -30,12 +30,9 @@
 }
 
 .card__header--price {
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-align: center;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 70px;
     color: #053b41;
 }
@@ -92,7 +89,7 @@
     position: absolute;
     font-size: 1.6rem;
     bottom: 175%;
-    left: -10px;
+    right: 5px;
     background: #badfe3;
     border-radius: 5px;
     padding: 0.5em;

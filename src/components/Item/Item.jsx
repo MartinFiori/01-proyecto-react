@@ -21,7 +21,7 @@ const Item = ({ data }) => {
             <section className="card__header">
                 <h3 className="card__header--title">{name}</h3>
                 <div className="card__buttons--container">
-                    <i className={`fas fa-share-alt card__buttons--icon`} onClick={(e) => { navigator.clipboard.writeText(e.target.parentElement.parentElement.firstChild.href); copied() }}></i>
+                    <i className={`fas fa-share-alt card__buttons--icon`} onClick={(e) => { navigator.clipboard.writeText(e.target.parentElement.parentElement.parentElement.lastChild.firstChild.href); copied() }}></i>
                     <p className={`copied ${itemCopied ? "copied--active" : ""}`}>¡Copiado!</p>
                 </div>
             </section>
