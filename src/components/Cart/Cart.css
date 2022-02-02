@@ -75,7 +75,9 @@
     width: 20%;
 }
 
-
+.emptyCartList{
+    overflow-x: hidden;
+}
 
 .itemList__details--quantity button {
     width: 30px;

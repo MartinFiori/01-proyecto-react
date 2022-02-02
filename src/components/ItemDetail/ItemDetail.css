@@ -29,7 +29,7 @@
 }
 
 .detail__header--price {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     text-align: center;
     font-weight: bold;
     display: flex;
@@ -37,8 +37,7 @@
     justify-content: center;
     height: 60px;
     width: 70px;
-    background: #badfe3;
-    color: #053b41;
+    color: var(--text-color);
     border-radius: 5px;
 }
 
