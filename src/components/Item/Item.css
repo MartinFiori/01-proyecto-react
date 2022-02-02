@@ -23,7 +23,7 @@
     font-size: 2rem;
     flex-basis: 75%;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     padding-inline: 5%;
@@ -62,7 +62,7 @@
 }
 
 .card__buttons--buy {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: .4em;
     background: transparent;
     color: var(--primary-color);
