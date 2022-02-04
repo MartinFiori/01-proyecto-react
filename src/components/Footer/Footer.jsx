@@ -23,7 +23,7 @@ const Footer = () => {
                 <a href="https://www.instagram.com/estoybrillandocon/?hl=es" target={"_blank"}>
                     <Instagram width={size} height={size} fill={fillColor} className="instagram"/>
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=+5491140699688" target={"_blank"}>
+                <a href="https://api.whatsapp.com/send?phone=+5491140699688&text=Hola! Quería consultarte sobre un producto!" target={"_blank"}>
                     <Whatsapp width={size} height={size} fill={fillColor} className="whatsapp"/>
                 </a>
             </div>
