@@ -12,7 +12,7 @@ import Contact from '../../pages/ContactPage/ContactPage.jsx';
 import PaymentContainer from '../../pages/PaymetContainer/PaymentContainer.jsx';
 import TicketPage from '../../pages/TicketPage/TicketPage';
 import Footer from '../../components/Footer/Footer.jsx';
-
+import AdminPage from '../../pages/Admin/AdminPage';
 
 // Context
 import { CartProvider } from '../../context/CartContext/CartContext';
@@ -24,13 +24,12 @@ const AppRouter = () => {
                 <NavBar/>
                     <Routes>
                         <Route path='/detail/:id' element ={<ItemDetailContainer/>}/>
+                        <Route path='/admin' element ={<AdminPage/>}/>
                         <Route path='/cart' element ={<CartPage/>}/>
                         <Route path='/about-us' element ={<AboutUs/>}/>
                         <Route path='/contact-us' element ={<Contact/>}/>
                         <Route path='/ticket-page' element ={<TicketPage/>}/>
                         <Route path='/payment-process' element={<PaymentContainer/>}/>
-                        <Route path='/' element={<ItemListContainer/>}/> 
-                        <Route path='/categoria/:idCategoria' element={<ItemListContainer/>}/>
                         <Route path='/' element ={<ItemListContainer/>}/>
                         <Route path='*' element ={<Error404Page/>}/>
                     </Routes>

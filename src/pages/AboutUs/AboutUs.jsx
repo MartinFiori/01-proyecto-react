@@ -3,7 +3,8 @@ import './AboutUs.css'
 
 // Components
 import Pacman from '../../components/Pacman/Pacman';
-import Img from '../../assets/home/home1.jpg'
+// import Img from '../../assets/home/home1.jpg'
+import Carrousel from '../../components/Carrousel/Carrousel';
 
 const AboutUs = () => {
     const [loader, setLoader] = useState(true)
@@ -12,6 +13,9 @@ const AboutUs = () => {
             setLoader(false)
         }, 1000);
     }, []);
+
+
+
     return(
         <>
         {
@@ -22,7 +26,7 @@ const AboutUs = () => {
             <h1>Sobre Nosotros</h1>
             <h2><a href="https://www.instagram.com/estoybrillandocon/?hl=es" target="_blank" className='brillandocon'>Estoy brillando con</a> es el lugar donde publicamos nuestras creaciones hechas en impresión 3D, nuestro fin es crear juntos diseño y diversión!</h2>
             <div className='containerInfo'>
-                <img src={Img} alt="" className='containerInfo__img' />
+                <Carrousel />
                 <div className="containerInfo__nosotros">
                     <h3 className="containerInfo__nosotros--pregunta">¿Cómo trabajamos?</h3>
                     <p className="containerInfo__nosotros--respuesta">Todo lo publicado en nuestra página web puede ser impreso en distintos colores y tamaños, ya sean los que están publicados en las opciones o a pedido, si no encontras exacto lo que buscas contactate con nosotros!</p>
