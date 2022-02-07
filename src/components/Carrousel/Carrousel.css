@@ -1,6 +1,7 @@
 .slider {
     width: 500px;
     height: auto;
+    margin-block: 3rem;
 }
 
 .slider__content,
@@ -14,4 +15,15 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+}
+
+@media only screen and (max-width:500px){
+    .slider {
+        width: 100vw;
+        height: auto;
+    }
+    .slider__content--item img {
+        border-radius: 0;
+    }
+
 }
