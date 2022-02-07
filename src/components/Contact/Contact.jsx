@@ -40,22 +40,22 @@ function Contact() {
                             <div className="inputs-Container">
                                 <div className='contact-form--userInfo'>
                                     <label htmlFor="">Nombre completo:</label>
-                                    <input type="text" {...register('name', {required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z\u00C0-\u00FF]+\s[a-z\u00C0-\u00FF]+$/i, message:"Por favor, ingrese su nombre completo"}})} className='input'/>
+                                    <input type="text" {...register('name', {required:'Por favor, ingrese su nombre', pattern:{value:/^[a-z\u00C0-\u00FF]+\s[a-z\u00C0-\u00FF]+$/i, message:"Por favor, ingrese su nombre completo"}})} className="contact--input"/>
                                     <p className="errorMessage">{errors.name?.message}</p>
                                     <label htmlFor="">Teléfono de contacto:</label>
-                                    <input type="number" {...register('number', {required:'Por favor, ingrese su teléfono', pattern:{value:/^[\d]{8,12}/, message:"Por favor, ingrese un número válido"}})} className='input'/>
+                                    <input type="number" {...register('number', {required:'Por favor, ingrese su teléfono', pattern:{value:/^[\d]{8,12}/, message:"Por favor, ingrese un número válido"}})} className="contact--input"/>
                                     <p className="errorMessage">{errors.number?.message}</p>
                                     <label htmlFor="">Correo electrónico:</label>
-                                    <input type="email" {...register('email', {required:'Por favor, ingrese su correo electrónico', pattern:{value:/^[A-Z0-9._%+-]+@[A-Z.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})} className='input'/>
+                                    <input type="email" {...register('email', {required:'Por favor, ingrese su correo electrónico', pattern:{value:/^[A-Z0-9._%+-]+@[A-Z.-]+\.[a-z]{2,4}$/i, message:"Por favor, ingrese un correo electrónico válido"}})} className="contact--input"/>
                                     <p className="errorMessage">{errors.email?.message}</p>
                                 </div>
                                 <div className='contact-form--userComment'>
                                     <label htmlFor="">Deje su comentario:</label>
-                                    <textarea className='input' {...register('comment', {required:'Por favor, deje su comentario', pattern:{value:/^[a-z\u00C0-\u00FF0-9]{2,}/i, message:"Por favor, deje un comentario válido"}})} rows={10} cols={35} ></textarea>
+                                    <textarea className="contact--textarea" {...register('comment', {required:'Por favor, deje su comentario', pattern:{value:/^[a-z\u00C0-\u00FF0-9]{2,}/i, message:"Por favor, deje un comentario válido"}})} rows={10} cols={35} ></textarea>
                                     <p className="errorMessage">{errors.comment?.message}</p>
                                 </div>
                             </div>
-                            <input type="submit" value="Enviar comentario" />
+                            <input type="submit" value="Enviar comentario" className='contact--input'/>
                         </form>
                     </div>
                     :

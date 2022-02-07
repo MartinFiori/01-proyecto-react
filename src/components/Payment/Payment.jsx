@@ -1,10 +1,12 @@
 // Components
 import React, { useContext, useState } from "react";
 import "./Payment.css";
-import { CartContext } from "../../context/CartContext/CartContext.jsx";
 import BackToMenu from "../BackToMenu/BackToMenu";
 import CartIcon from '../svg/CartIcon'
 import Ticket from "../Ticket/Ticket";
+
+// Context
+import { CartContext } from "../../context/CartContext/CartContext.jsx";
 
 // Firebase
 import db from "../../Firebase";

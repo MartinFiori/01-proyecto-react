@@ -1,5 +1,5 @@
 .formContainer,
-input {
+.formContainer input {
     font-size: 2rem;
 }
 
@@ -10,7 +10,7 @@ input {
     justify-content: center;
 }
 
-input {
+.Payment input {
     margin-bottom: 20px;
 }
 
